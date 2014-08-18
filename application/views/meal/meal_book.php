@@ -722,10 +722,7 @@ table.hovertable td {
 							  <input type="hidden" name="inplatform" id="inplatform" value="">
 							  <input type="hidden" name="inproject" id="inproject" value="">
 							  </p><br/>
-  <script>
-    window.WriteOrderInDiv();
-    window.insert_customer();
-    </script>
+
 
 							  <?php if(!empty($menudata)): ?>
 							  
@@ -796,7 +793,10 @@ table.hovertable td {
   </div>
 
   
-
+  <script type="text/javascript">
+    window.WriteOrderInDiv();
+    window.insert_customer();
+    </script>
 
 </body>
 </html>
