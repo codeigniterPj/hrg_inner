@@ -788,16 +788,15 @@ table.hovertable td {
 		</div><!-- HOME SECTION END -->
 	</div>
 
-  
-
   <div id="footer">
     <div align="center">
       <p>Copyright &copy; 2012-2014 &nbsp;.&nbsp;HRG All rights reserved.</p>
     </div>
   </div>
-
-  
-
+  <script type="text/javascript">
+    window.WriteOrderInDiv();
+    window.insert_customer();
+    </script>
 
 </body>
 </html>
