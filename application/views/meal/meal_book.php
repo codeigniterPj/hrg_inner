@@ -80,7 +80,7 @@ $(".portfolio-1").slideUp();}
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.min.js"?> type="text/javascript"></script>
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"?> type="text/javascript"></script>
 
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
 
 function init_customer(){
 	var date = new Date();
@@ -722,6 +722,7 @@ table.hovertable td {
 							  <input type="hidden" name="inplatform" id="inplatform" value="">
 							  <input type="hidden" name="inproject" id="inproject" value="">
 							  </p><br/>
+               </form>
   <script>
     window.WriteOrderInDiv();
     window.insert_customer();
@@ -748,7 +749,7 @@ table.hovertable td {
 							   <p>
 								请您点完餐后，填写上您的大名，确认购物车的订单后，提交订餐！
 							</p>
-							  </form>
+
 							
 						</div>
 						

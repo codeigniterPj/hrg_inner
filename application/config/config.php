@@ -14,7 +14,30 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.0.195/mealbook';
+function get_server_ip() {
+
+    if (isset($_SERVER)) {
+
+        if($_SERVER['SERVER_ADDR']) {
+
+            $server_ip = $_SERVER['SERVER_ADDR'];
+
+        } else {
+
+            $server_ip = $_SERVER['LOCAL_ADDR'];
+
+        }
+
+    } else {
+
+        $server_ip = getenv('SERVER_ADDR');
+
+    }
+
+    return $server_ip;
+}
+
+$config['base_url']	= 'http://' . get_server_ip() . '/hrg_inner';
 
 /*
 |--------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	class meal extends CI_Controller {
 	function __construct()
  	{
@@ -52,6 +52,23 @@
  		$data='';
  		$this->load->view('/meal/meal_rank',$data);
  	}
+
+ 	function meal_book_confirm()
+ 	{
+ 		$data_list = $this->input->post('data_list');
+ 		$this->load->model('/meal/meal_book');
+ 		$this->meal_book->insert_orderlist($data_list);
+ 		print_r("下单成功");
+ 	}
+
+  	function meal_statistics()
+ 	{
+ 		$this->load->model('/meal/meal_book');
+ 		$this->meal_book->meal_statistics();
+
+ 	}	
+
+
 }
 
 ?>
