@@ -2,6 +2,7 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf8"/>
 	<title>大火溶内部网站</title>
 	 
 	<base href="<?php echo base_url() ;?>"/>
@@ -39,20 +40,137 @@
 	});
 	
 		});
-					function showfolio(number){
+		function showfolio(number){
 			$.ajax({
 			type: 'POST',
 			dataType:'html',
-  url: "portfolio.php?id="+number,
-  success: function(data) { 
-  //alert(data);
-  $(".portfolio-1").empty().append(data).slideDown();
-}
-			});}
-function outhere(){
-$(".portfolio-1").slideUp();}
+			url: "portfolio.php?id="+number,
+			success: function(data) { 
+			//alert(data);
+			$(".portfolio-1").empty().append(data).slideDown();
+			}
+			});
+		}
+			function outhere(){
+			$(".portfolio-1").slideUp();
+		}
 </script>
 
+
+<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.slides.js"?>></script>
+<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.slides.min.js"?>></script>
+<script type="text/javascript">  
+ $(function(){
+      $("#slides").slidesjs({
+        width: 1170,
+        height: 436
+      });
+    });
+
+$(function(){
+  $("#slides").slidesjs({
+    start: 3
+  });
+});
+
+  $(function(){  
+  $("#slides").slides({  
+    container: 'slides_container' 
+  });  
+  });
+
+  $(function(){  
+	$("#slides").slides({  
+	   preload: true  
+	  });  
+	}); 
+
+	$(function(){
+	  $("#slides").slides({
+		generateNextPrev: true
+	  });
+	});
+
+$(function(){
+  $("#slides").slidesjs({
+    width: 700,
+    height: 393
+  });
+});
+
+$(function(){
+  $("#slides").slidesjs({
+    play: {
+      active: true,
+        // [boolean] Generate the play and stop buttons.
+        // You cannot use your own buttons. Sorry.
+      effect: "slide",
+        // [string] Can be either "slide" or "fade".
+      interval: 5000,
+        // [number] Time spent on each slide in milliseconds.
+      auto: false,
+        // [boolean] Start playing the slideshow on load.
+      swap: true,
+        // [boolean] show/hide stop and play buttons
+      pauseOnHover: false,
+        // [boolean] pause a playing slideshow on hover
+      restartDelay: 2500
+        // [number] restart delay on inactive slideshow
+    }
+  });
+});
+
+$(function(){
+  $("#slides").slidesjs({
+    effect: {
+      slide: {
+        // Slide effect settings.
+        speed: 200
+          // [number] Speed in milliseconds of the slide animation.
+      },
+      fade: {
+        speed: 300,
+          // [number] Speed in milliseconds of the fade animation.
+        crossfade: true
+          // [boolean] Cross-fade the transition.
+      }
+    }
+  });
+});
+
+$(function(){
+  $("#slides").slidesjs({
+    navigation: {
+      active: true,
+        // [boolean] Generates next and previous buttons.
+        // You can set to false and use your own buttons.
+        // User defined buttons must have the following:
+        // previous button: class="slidesjs-previous slidesjs-navigation"
+        // next button: class="slidesjs-next slidesjs-navigation"
+      effect: "slide"
+        // [string] Can be either "slide" or "fade".
+    }
+  });
+});
+	// $(function(){
+	//   $("#slides").slides({
+	// 	next: 'next'
+	//   });
+	// }); 
+
+	// $(function(){
+	//   $("#slides").slides({
+	// 	prev: 'prev'
+	//   });
+	// });
+</script>  
+
+<style type="text/css" media="screen">  
+ #slides {
+      display:none;
+    }
+ 
+</style>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 	<!--[if lt IE 9]>
         <link rel="stylesheet" type="text/css" href="css/iefix.css" />
@@ -102,13 +220,32 @@ $(".portfolio-1").slideUp();}
 			</div>
 			<div class="content">
 				<div class="home-1">
-					<h1>Hey ! I am<br /><span>Business <span class="agencySpan">Agency</span></span></h1>
-					<p>
-						Aenean lacinia bibendum nulla sed consectetur. Cras mattis 
-						consectetur purus sit amet fermentum. Donec id elit non 
-						mi porta gravida at eget.
-					</p>
-					<a href="#" class="checkPortfolio">Check our Portfolio</a>
+					<div id="slides">
+						  <div class="slides_container">
+						  	<div class="slidesjs-control" style="position: relative; left: 0px; width: 1170px; height: 435.63829787234px;">
+						  	<img src="img/1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/" class="slidesjs-slide" slidesjs-index="0" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 0; -webkit-backface-visibility: hidden; display: none;">
+						  	<img src="img/2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/" class="slidesjs-slide" slidesjs-index="1" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 0; display: none; -webkit-backface-visibility: hidden;">
+						  	<img src="img/3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/" class="slidesjs-slide" slidesjs-index="2" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 0; display: none; -webkit-backface-visibility: hidden;">
+						  	<img src="img/4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/" class="slidesjs-slide" slidesjs-index="3" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 10; display: block; -webkit-backface-visibility: hidden;">
+						  	</div>
+						    <!-- <div>
+						      <h1>Slide 1</h1>
+						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						    </div>
+						  	<div>
+						      <h1>Slide 2</h1>
+						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						  	</div>
+						 	<div>
+						      <h1>Slide 3</h1>
+						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					     	</div>
+					      	<div>
+						      <h1>Slide 4</h1>
+						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					      	</div> -->
+					  	  </div>
+					</div>
 				</div>
 				<div class="home-2">
 					<div class="home-2-center clearfix">
@@ -155,20 +292,7 @@ $(".portfolio-1").slideUp();}
 						<a href="#" class="purchaseTheme">Purchase the Theme</a>
 					</div>
 				</div>
-				<div class="home-4 clearfix">
-					<div class="home-apps home-apps1">
-						<h4>Web Application</h4>
-						<p>Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</p>
-					</div>
-					<div class="home-apps home-apps2">
-						<h4>Mobile Apps</h4>
-						<p>Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</p>
-					</div>
-					<div class="home-apps home-apps3">
-						<h4>iPAD Application</h4>
-						<p>Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</p>
-					</div>
-				</div>
+			
 			</div>
 		</div><!-- HOME SECTION END -->
 	</div>
@@ -329,7 +453,7 @@ $(".portfolio-1").slideUp();}
 		<div class="container">
 			<div class="content">
 				<div class="contentTitle1">
-					<h1>鲜粥 <span>道</span></h1>
+					<h1>我要 <span>订饭</span></h1>
 				</div>
 				<div class="contentTitle2">
 					<p>深思一下今天想吃什么 <span>可以开始点了</span>....</p>
