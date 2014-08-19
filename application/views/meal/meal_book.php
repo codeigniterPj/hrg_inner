@@ -52,15 +52,12 @@
 function outhere(){
 $(".portfolio-1").slideUp();}
 </script>
-<!-- 图表控件js加载 -->
+
   <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/js/canvasjs/canvasjs.min.js" ?>></script>
   <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/js/canvasjs/source/excanvas.js" ?>></script>
   <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/js/canvasjs/source/canvasjs.js" ?>></script>
 
-<!-- 下拉复选框 -->
-
 <link rel="stylesheet" type="text/css" href="./js/multiselectSrc/jquery-ui.css"/>
-<!-- <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css"/> -->
 <link rel="stylesheet" type="text/css" href="./js/multiselectSrc/jquery.multiselect.css"/>
 <link rel="stylesheet" type="text/css" href="./js/assets/prettify.css" />
 <link rel="stylesheet" type="text/css" href=<?php echo $this->config->item('base_url')."/js/assets/style.css"?> />
@@ -71,17 +68,14 @@ $(".portfolio-1").slideUp();}
 <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/js/assets/prettify.js" ?>></script>
 <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/js/multiselectSrc/jquery.multiselect.js" ?>></script>
 
-<!-- 日期控件js加载 -->
-<link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.css"?>type="text/css" />
-<link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.css"?>type="text/css" />
+<link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.css"?> type="text/css" />
+<link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.css"?> type="text/css" />
 <link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/demos.css"?> rel="stylesheet" type="text/css" />
 
-<!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script> -->
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.min.js"?> type="text/javascript"></script>
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"?> type="text/javascript"></script>
 
 <script type="text/javascript" charset="utf-8">
-
 function init_customer(){
 	var date = new Date();
 	document.cookie="customer='';expires=" + date.toGMTString();
@@ -99,7 +93,7 @@ document.cookie="InameArr='';expires=" + date.toGMTString();
     var sum=0;
     for(var i=1;i<=(parseInt(rowscount)-1);i++)
     {
-        var littecount=document.getElementById("test").rows[i].cells[3].innerText;
+        var littecount=document.getElementById("test").rows[i].cells[4].innerText;
         sum=parseFloat(sum)+parseFloat(littecount);
     }
     document.getElementById("total").innerText=parseFloat(sum);
@@ -112,22 +106,21 @@ document.cookie="InameArr='';expires=" + date.toGMTString();
 //计算单个小计
  function EveryCount()
  {
-    //alert("xxx");
     var index=window.event.srcElement.parentElement.parentElement.rowIndex;
     var test = document.getElementById("test");
-    var a=document.getElementById("test").rows[index].cells[1].innerText;
+    var a=document.getElementById("test").rows[index].cells[2].innerText;
     var b=document.getElementById("Num"+index).value;
     var c=parseFloat(a)*parseFloat(b);
     
-    document.getElementById("test").rows[index].cells[3].innerText=c;
+    document.getElementById("test").rows[index].cells[4].innerText=c;
     TotalCount();
     updateOrderCookie();//修改cookies中保存的数量
  }
 
- //<--Start--将订单数据写入div
+//Start--将订单数据写入div
 function WriteOrderInDiv()
 {
- var gwc="<table id='test' style='border:1px;'><tr><td width='45%'>商品名称</td><td>单价(￥)</td><td>数量</td><td>小计</td></tr>";
+ var gwc="<table id='test' style='border:1px;'><tr><td style='display:none'>编号</td><td >商品名称</td><td>单价(￥)</td><td>数量</td><td>小计</td></tr>";
  var OrderString=unescape(ReadOrderForm('24_OrderForm'));//获取cookies中的购物车信息
 
  
@@ -141,6 +134,12 @@ function WriteOrderInDiv()
  gwc+="<tr>";
   
   OneOrder=strs[i].split("&");
+
+  gwc+="<td style='display:none'>";
+  gwc+=OneOrder[0];
+  console.log(OneOrder[0]);
+  gwc+="</td>";
+
   for (a=1;a<OneOrder.length ;a++ )    
   {
   
@@ -171,8 +170,8 @@ function WriteOrderInDiv()
   document.getElementById("Cart").innerHTML=gwc;
   TotalCount();
 }
-//<--End--将订单数据写入div
-//--Start--展开/收缩购物车
+//End--将订单数据写入div
+//Start--展开/收缩购物车
 function show(id)
 {
 if (document.getElementById(id).style.display=="") 
@@ -183,8 +182,8 @@ else{document.getElementById(id).style.display='';
 }
 
 }
-//<--End--展开/收缩购物车
-//<--Start--从cookie中读出订单数据的函数
+//展开/收缩购物车
+//start从cookie中读出订单数据的函数
 function ReadOrderForm(name)
 {
     var cookieString=document.cookie;
@@ -209,18 +208,18 @@ function ReadOrderForm(name)
         }
     }    
 }
-//-->End
-//<--Start--添加商品至购物车的函数,参数(商品编号,商品名称，商品数量，商品单价)
+//End
+//Start添加商品至购物车的函数,参数(商品编号,商品名称，商品数量，商品单价)
 
-//-->End
-//<--Start--修改数量后，更新cookie的函数
+//End
+//Start修改数量后，更新cookie的函数
 function updateOrderCookie()
 {
  var rowscount=document.getElementById("test").rows.length;
    var item_detail="";
     for(var i=1;i<=(parseInt(rowscount)-1);i++)
     {
-        item_detail+="|"+document.getElementById("test").rows[i].cells[0].innerText+"&"+document.getElementById("test").rows[i].cells[0].innerText+"&"+document.getElementById("test").rows[i].cells[1].innerText+"&"+document.getElementById("Num"+i).value;
+        item_detail+="|"+document.getElementById("test").rows[i].cells[0].innerText+"&"+document.getElementById("test").rows[i].cells[1].innerText+"&"+document.getElementById("test").rows[i].cells[2].innerText+"&"+document.getElementById("Num"+i).value;
       //  document.write(document.getElementById("test").rows(i).cells(1).innerText);
     }
    
@@ -228,9 +227,9 @@ function updateOrderCookie()
     Then.setTime(Then.getTime()+60*60*1000);
  document.cookie="24_OrderForm="+escape(item_detail)+";expires=" + Then.toGMTString();
 }
-//End--订单更新
+//End订单更新
 
-//start-->订单提交时要更新订单信息，并组合成json数据
+//start订单提交时要更新订单信息，并组合成json数据
 function updataOrderData_json()
 {
   console.log("1");
@@ -245,17 +244,19 @@ function updataOrderData_json()
     for (var i = 1; i <= (parseInt(rowscount) - 2) ; i++) 
     {
         data_json = data_json + "{"
-        + '"item_name"' + ":" + "\"" + document.getElementById('test').rows[i].cells[0].innerText + "\"" + ","
-        + '"item_price"' + ":" + "\""+ document.getElementById('test').rows[i].cells[1].innerText + "\"" + ","
+        + '"item_no"' + ":" + "\"" + document.getElementById('test').rows[i].cells[0].innerText + "\"" + ","
+        + '"item_name"' + ":" + "\"" + document.getElementById('test').rows[i].cells[1].innerText + "\"" + ","
+        + '"item_price"' + ":" + "\""+ document.getElementById('test').rows[i].cells[2].innerText + "\"" + ","
         + '"item_amount"' + ":" + "\""+document.getElementById("Num"+ i).value +"\""+ ","
-        + '"item_sum"' + ":" + "\""+ document.getElementById('test').rows[i].cells[3].innerText + "\"" + "}" + ",";
+        + '"item_sum"' + ":" + "\""+ document.getElementById('test').rows[i].cells[4].innerText + "\"" + "}" + ",";
     }
     var i= (parseInt(rowscount) - 1);
     data_json = data_json + "{"
-        + '"item_name"' + ":" + "\"" + document.getElementById('test').rows[i].cells[0].innerText + "\"" + ","
-        + '"item_price"' + ":" + "\""+ document.getElementById('test').rows[i].cells[1].innerText + "\"" + ","
+        + '"item_no"' + ":" + "\"" + document.getElementById('test').rows[i].cells[0].innerText + "\"" + ","
+        + '"item_name"' + ":" + "\"" + document.getElementById('test').rows[i].cells[1].innerText + "\"" + ","
+        + '"item_price"' + ":" + "\""+ document.getElementById('test').rows[i].cells[2].innerText + "\"" + ","
         + '"item_amount"' + ":" + "\""+document.getElementById("Num"+ i).value +"\""+ ","
-        + '"item_sum"' + ":" + "\""+ document.getElementById('test').rows[i].cells[3].innerText + "\"" + "}" ;
+        + '"item_sum"' + ":" + "\""+ document.getElementById('test').rows[i].cells[4].innerText + "\"" + "}" ;
     console.log("4");
     data_json = '{"orders":{' + '"customer_name"' + ":" + "\"" + customer_name + "\"" + ","+ '"orders_info"' + ":" + "[" + data_json + "]" + "," + '"total"' + ":" + "\"" + money + "\"" + '}' + "}";
     console.log(data_json);
@@ -264,7 +265,7 @@ function updataOrderData_json()
 
 //End<--
 
-//<--清空购物车
+//清空购物车
 function  clearOrder() 
 {
 var Then = new Date();
@@ -274,7 +275,7 @@ init_InameArr();
 // iname="";
 // iname = Array();
 }
-//<--End
+//End
 
 </script>
 
@@ -343,6 +344,7 @@ function showValues() {
 function SetOrderForm(item_no,item_name,item_amount,item_price)
 {
     var cookieString=document.cookie;
+    console.log(item_name);
     if (cookieString.length>=4000)
     {
         alert("您的订单已满\n请结束此次订单操作后添加新订单！");
@@ -367,7 +369,7 @@ function SetOrderForm(item_no,item_name,item_amount,item_price)
 
         var item_detail="|"+item_no+"&"+item_name+"&"+item_price+"&"+item_amount;
         var itemname="|"+item_name;
-
+        alert(item_detail);
         var flag=false;
 
 
@@ -399,7 +401,7 @@ function SetOrderForm(item_no,item_name,item_amount,item_price)
                         {  
                          // iname.push(item_name);
                           document.cookie="InameArr=" + escape(InameArr) + escape(itemname) + ";expires=" + Then.toGMTString();
-                          document.cookie="24_OrderForm=" + mer_list+escape(item_detail)+";expires=" + Then.toGMTString();
+                          document.cookie="24_OrderForm=" + mer_list + escape(item_detail) + ";expires=" + Then.toGMTString();
                           alert("“"+item_name+"”\n"+"已经加入您的订单！");
                           return;
                         }
@@ -413,10 +415,9 @@ function SetOrderForm(item_no,item_name,item_amount,item_price)
 
 function insert_update(name)
 {
- //console.log("xxxx");
     var testobj = document.getElementById("test");
     for (var i = testobj.rows.length - 1; i >= 0; i--) {
-       if(testobj.rows[i].cells[0].innerText == name)
+       if(testobj.rows[i].cells[1].innerText == name)
        {
               //console.log("come in");
 
@@ -424,8 +425,8 @@ function insert_update(name)
               iamount = parseFloat(iamount) + 1;
               //testobj.rows[i].cells[2].innerText = iamount;
               document.getElementById("Num"+ i).value = iamount;
-              var count = parseFloat(iamount) * parseFloat(testobj.rows[i].cells[1].innerText);
-              testobj.rows[i].cells[3].innerText = count;
+              var count = parseFloat(iamount) * parseFloat(testobj.rows[i].cells[2].innerText);
+              testobj.rows[i].cells[4].innerText = count;
               TotalCount();
               updateOrderCookie();//修改cookies中保存的数量
        }  
@@ -773,7 +774,7 @@ table.hovertable td {
 						      <td ><div align="center"><span class="STYLE10"><?php echo $key?></span></div></td>
 						      <td ><div align="center"><span class="STYLE10"><?php echo $name?></span></div></td>
 						      <td ><div align="center"><span class="STYLE10"><?php echo $price . "元"?></span></div></td>
-						      <td ><div align="center"><span class="STYLE10"><a value="<?php echo $key?>" name = "<?php echo $name?>" id = "<?php echo $price ?>" style="color:#FF0000" href="javascript:void(0)" onclick="SetOrderForm(this.value,this.name,'1',this.id);WriteOrderInDiv();">点击订我</a></span></div></td>
+						      <td ><div align="center"><span class="STYLE10"><a value="<?php echo $key?>" name = "<?php echo $name?>" id = "<?php echo $price ?>" style="color:#FF0000" href="javascript:void(0)" onclick="SetOrderForm('<?php echo $key?>',this.name,'1',this.id);WriteOrderInDiv();">点击订我</a></span></div></td>
 						     </tr>
 						    <?php endforeach; ?>
 						    </table>
