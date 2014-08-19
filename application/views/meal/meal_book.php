@@ -113,7 +113,7 @@ document.cookie="InameArr='';expires=" + date.toGMTString();
     var c=parseFloat(a)*parseFloat(b);
     
     document.getElementById("test").rows[index].cells[4].innerText=c;
-    TotalCount();
+    TotalCount(); 
     updateOrderCookie();//修改cookies中保存的数量
  }
 
@@ -657,8 +657,8 @@ table.hovertable td {
 						<ul class="navMenu clearfix">
 							<li><a href="#home">Home</a></li>
 							<li><div class="navMenu_son"><span>查看订单</span>
-                      <a href="<?php echo site_url('/meal/meal_check1') ?>">查询餐馆订单</a>
-                      <a href="<?php echo site_url('/meal/meal_check2') ?>">查询个人订单</a>
+                      <a href="<?php echo site_url('/meal/meal_check_restaurant_ok') ?>">查询餐馆订单</a>
+                      <a href="<?php echo site_url('/meal/meal_check_person_ok') ?>">查询个人订单</a>
                   </div></li>
 							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>
 							

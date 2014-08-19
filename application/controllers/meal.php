@@ -39,12 +39,20 @@
  		$this->load->view('/meal/meal_book',$data);
  	}
 
- 	function meal_check()
+
+ 	function meal_check_person_ok()
  	{
- 		// $md = array('8888',$menuid);
- 		// $this->mauth->get_auth($this->session->userdata('power'),$md);
- 		$data='';
- 		$this->load->view('/meal/meal_check',$data);
+ 		$this->load->model('/meal/meal_book');
+ 		$this->meal_book->meal_check_person_ok('123');
+ 		//$this->load->view('/meal/meal_check',$data);
+ 	}
+
+ 	function meal_check_restaurant_ok()
+ 	{
+
+ 		$this->load->model('/meal/meal_book');
+ 		$this->meal_book->meal_check_restaurant_ok(1);
+ 		//$this->load->view('/meal/meal_check',$data);
  	}
 
  	function meal_rank()
