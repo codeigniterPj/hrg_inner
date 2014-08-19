@@ -7,6 +7,8 @@
 	 
 	<base href="<?php echo base_url() ;?>"/>
 	<link rel="stylesheet" type="text/css" href="./css/main.css"/>
+	  <link rel="stylesheet" href=<?php echo $this->config->item('base_url')."/css/example.css"?>/>
+  <link rel="stylesheet" href=<?php echo $this->config->item('base_url')."/css/font-awesome.min.css"?>/>
 	
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery-1.7.2.min.js"?>></script>
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.scrollTo.js"?>></script>
@@ -59,118 +61,65 @@
 
 <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.slides.js"?>></script>
 <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.slides.min.js"?>></script>
-<script type="text/javascript">  
- $(function(){
-      $("#slides").slidesjs({
-        width: 1170,
-        height: 436
+<script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 940,
+        height: 528,
+        navigation: false
       });
     });
+  </script> 
+  <!-- End SlidesJS Optional-->
 
-$(function(){
-  $("#slides").slidesjs({
-    start: 3
-  });
-});
+  <!-- SlidesJS Required: These styles are required if you'd like a responsive slideshow -->
+ <style>
+ 	.home{
+		margin: -100px auto
+ 	}
 
-  $(function(){  
-  $("#slides").slides({  
-    container: 'slides_container' 
-  });  
-  });
-
-  $(function(){  
-	$("#slides").slides({  
-	   preload: true  
-	  });  
-	}); 
-
-	$(function(){
-	  $("#slides").slides({
-		generateNextPrev: true
-	  });
-	});
-
-$(function(){
-  $("#slides").slidesjs({
-    width: 700,
-    height: 393
-  });
-});
-
-$(function(){
-  $("#slides").slidesjs({
-    play: {
-      active: true,
-        // [boolean] Generate the play and stop buttons.
-        // You cannot use your own buttons. Sorry.
-      effect: "slide",
-        // [string] Can be either "slide" or "fade".
-      interval: 5000,
-        // [number] Time spent on each slide in milliseconds.
-      auto: false,
-        // [boolean] Start playing the slideshow on load.
-      swap: true,
-        // [boolean] show/hide stop and play buttons
-      pauseOnHover: false,
-        // [boolean] pause a playing slideshow on hover
-      restartDelay: 2500
-        // [number] restart delay on inactive slideshow
+    #slides {
+      display: none
     }
-  });
-});
 
-$(function(){
-  $("#slides").slidesjs({
-    effect: {
-      slide: {
-        // Slide effect settings.
-        speed: 200
-          // [number] Speed in milliseconds of the slide animation.
-      },
-      fade: {
-        speed: 300,
-          // [number] Speed in milliseconds of the fade animation.
-        crossfade: true
-          // [boolean] Cross-fade the transition.
+    .container {
+      margin: 0 auto
+    }
+
+    /* For tablets & smart phones */
+    @media (max-width: 767px) {
+      body {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .container {
+        width: auto
       }
     }
-  });
-});
 
-$(function(){
-  $("#slides").slidesjs({
-    navigation: {
-      active: true,
-        // [boolean] Generates next and previous buttons.
-        // You can set to false and use your own buttons.
-        // User defined buttons must have the following:
-        // previous button: class="slidesjs-previous slidesjs-navigation"
-        // next button: class="slidesjs-next slidesjs-navigation"
-      effect: "slide"
-        // [string] Can be either "slide" or "fade".
+    /* For smartphones */
+    @media (max-width: 480px) {
+      .container {
+        width: auto
+      }
     }
-  });
-});
-	// $(function(){
-	//   $("#slides").slides({
-	// 	next: 'next'
-	//   });
-	// }); 
 
-	// $(function(){
-	//   $("#slides").slides({
-	// 	prev: 'prev'
-	//   });
-	// });
-</script>  
-
-<style type="text/css" media="screen">  
- #slides {
-      display:none;
+    /* For smaller displays like laptops */
+    @media (min-width: 768px) and (max-width: 979px) {
+      .container {
+        width: 724px
+      }
     }
- 
-</style>  
+
+    /* For larger displays */
+    @media (min-width: 1200px) {
+      .container {
+        width: 1170px
+      }
+    }
+  </style>
+
+   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 	<!--[if lt IE 9]>
         <link rel="stylesheet" type="text/css" href="css/iefix.css" />
@@ -227,6 +176,8 @@ $(function(){
 						  	<img src="img/2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/" class="slidesjs-slide" slidesjs-index="1" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 0; display: none; -webkit-backface-visibility: hidden;">
 						  	<img src="img/3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/" class="slidesjs-slide" slidesjs-index="2" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 0; display: none; -webkit-backface-visibility: hidden;">
 						  	<img src="img/4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/" class="slidesjs-slide" slidesjs-index="3" style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 10; display: block; -webkit-backface-visibility: hidden;">
+						  	<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
+      						<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 						  	</div>
 						    <!-- <div>
 						      <h1>Slide 1</h1>

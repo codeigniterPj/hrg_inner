@@ -62,7 +62,8 @@ body{
  
 html[xmlns] .clearfix {
 	display: block;
-	right: -400px;
+	right: -100px;
+	
 }
  
 * html .clearfix {
@@ -276,6 +277,7 @@ html[xmlns] .clearfix {
 	margin: 0 auto;
 	min-height: 362px;
 	padding-right: 600px;
+
 }
 
 .content .home-1 h1{
