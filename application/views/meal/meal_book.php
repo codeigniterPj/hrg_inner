@@ -241,6 +241,7 @@ function updataOrderData_json()
   var rowscount = document.getElementById("test").rows.length;
   console.log("3");
   var data_json = "";
+  var restaurant_id = $("#project").multiselect("update");
     for (var i = 1; i <= (parseInt(rowscount) - 2) ; i++) 
     {
         data_json = data_json + "{"
@@ -258,7 +259,7 @@ function updataOrderData_json()
         + '"item_amount"' + ":" + "\""+document.getElementById("Num"+ i).value +"\""+ ","
         + '"item_sum"' + ":" + "\""+ document.getElementById('test').rows[i].cells[4].innerText + "\"" + "}" ;
     console.log("4");
-    data_json = '{"orders":{' + '"customer_name"' + ":" + "\"" + customer_name + "\"" + ","+ '"orders_info"' + ":" + "[" + data_json + "]" + "," + '"total"' + ":" + "\"" + money + "\"" + '}' + "}";
+    data_json = '{"orders":{' + '"restaurant_id"' + ":" + "\"" + restaurant_id + "\"" + "," + '"customer_name"' + ":" + "\"" + customer_name + "\"" + ","+ '"orders_info"' + ":" + "[" + data_json + "]" + "," + '"total"' + ":" + "\"" + money + "\"" + '}' + "}";
     console.log(data_json);
     return data_json;
 }
@@ -544,6 +545,9 @@ function confirm()
   $(document).ready(function(){
     TotalCount();
   });
+  $(document).ready(function(){
+
+  })
 </script>
 
 <base href="<?php echo base_url() ;?>"/>
@@ -629,7 +633,9 @@ table.hovertable td {
 	border-style: solid;
 	border-color: #a9c6c9;
 }
-
+.navMenu_son li{
+  display: none;
+}
 
 </style>
 </head>
@@ -650,7 +656,10 @@ table.hovertable td {
 					<div class="headerBottom-1 clearfix">
 						<ul class="navMenu clearfix">
 							<li><a href="#home">Home</a></li>
-							<li><a href="<?php echo site_url('/meal/meal_check/')?>">查看订单</a></li>
+							<li><div class="navMenu_son"><span>查看订单</span>
+                      <a href="<?php echo site_url('/meal/meal_check1') ?>">查询餐馆订单</a>
+                      <a href="<?php echo site_url('/meal/meal_check2') ?>">查询个人订单</a>
+                  </div></li>
 							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>
 							
 						</ul>

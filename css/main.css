@@ -58,12 +58,11 @@ body{
  
 .clearfix {
 	display: inline-block;
+	margin: 0 auto;
 }
  
 html[xmlns] .clearfix {
-	display: block;
-	right: -100px;
-	
+	display: block;	
 }
  
 * html .clearfix {

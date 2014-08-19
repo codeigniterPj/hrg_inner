@@ -7,8 +7,7 @@
 	 
 	<base href="<?php echo base_url() ;?>"/>
 	<link rel="stylesheet" type="text/css" href="./css/main.css"/>
-	  <link rel="stylesheet" href=<?php echo $this->config->item('base_url')."/css/example.css"?>/>
-  <link rel="stylesheet" href=<?php echo $this->config->item('base_url')."/css/font-awesome.min.css"?>/>
+  	<link rel="stylesheet" href="./css/font-awesome.min.css"/>
 	
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery-1.7.2.min.js"?>></script>
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.scrollTo.js"?>></script>
@@ -74,8 +73,9 @@
 
   <!-- SlidesJS Required: These styles are required if you'd like a responsive slideshow -->
  <style>
- 	.home{
-		margin: -100px auto
+.home{
+		margin: 300px auto
+
  	}
 
     #slides {
@@ -85,8 +85,7 @@
     .container {
       margin: 0 auto
     }
-
-    /* For tablets & smart phones */
+/*
     @media (max-width: 767px) {
       body {
         padding-left: 20px;
@@ -97,34 +96,29 @@
       }
     }
 
-    /* For smartphones */
+
     @media (max-width: 480px) {
       .container {
         width: auto
       }
     }
 
-    /* For smaller displays like laptops */
     @media (min-width: 768px) and (max-width: 979px) {
       .container {
         width: 724px
       }
     }
 
-    /* For larger displays */
+
     @media (min-width: 1200px) {
       .container {
         width: 1170px
       }
-    }
+    }*/
   </style>
 
    
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-	<!--[if lt IE 9]>
-        <link rel="stylesheet" type="text/css" href="css/iefix.css" />
-	<![endif]-->
-
 <body>
 
 	<div id="home">
@@ -136,18 +130,7 @@
 							<h1><a href="#">&nbsp;</a></h1>
 							<p>大火溶内部网站</p>
 						</div>
-					<!-- 	<div class="headerRight clearfix">
-						<form action="http://www.baidu.com/baidu" target="_blank">
-								<table bgcolor="#FFFFFF"><tr><td>
-									<input name=tn type=hidden value=baidu>
-									<a href="http://www.baidu.com/"><img src="http://img.baidu.com/img/logo-80px.gif" alt="Baidu" align="bottom" border="0"></a>
-									<input type=text name=word size=30 style="width:140px;">
-									<input type="submit" value="百度搜索">
-									</td></tr>
-								</table>
-						</form>
-						
-						</div> -->
+				
 					</div>
 				</div>
 				<div class="headerBottom">
@@ -179,22 +162,7 @@
 						  	<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
       						<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 						  	</div>
-						    <!-- <div>
-						      <h1>Slide 1</h1>
-						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						    </div>
-						  	<div>
-						      <h1>Slide 2</h1>
-						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						  	</div>
-						 	<div>
-						      <h1>Slide 3</h1>
-						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					     	</div>
-					      	<div>
-						      <h1>Slide 4</h1>
-						      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					      	</div> -->
+						   
 					  	  </div>
 					</div>
 				</div>
