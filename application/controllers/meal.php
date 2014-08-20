@@ -32,7 +32,6 @@
  	{
  		// $md = array('8888',$menuid);
  		// $this->mauth->get_auth($this->session->userdata('power'),$md); 	
- 		$this->load->model('/meal/meal_book');
  		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
  		$data['project'] = $arrProject;
  		$data['menudata'] = $this->meal_book->menulist();
@@ -62,8 +61,8 @@
  	{
  		$this->load->model('/meal/meal_book');
  		$customer_name = $this->input->post('c_name');
- 		$this->input->set_cookie("person_name",$customer_name,36000);
- 		$data['c_name'] = $this->input->cookie("person_name");
+ 		$this->input->set_cookie("person_name",$customer_name,36000000000);
+ 		$data['c_name'] = $customer_name;
  		$data['response'] = $this->meal_book->meal_check_person_ok($customer_name);
  		$this->load->view('/meal/check_person',$data);
  		//$this->load->view('/meal/meal_check',$data);
@@ -72,7 +71,6 @@
  	function meal_check_restaurant_ok()
  	{
  		$project = $this->input->post('project');
- 		$this->load->model('/meal/meal_book');
  		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
  		$data['project'] = $arrProject;
  		$response = $this->meal_book->meal_check_restaurant_ok($project);
@@ -90,24 +88,19 @@
  	function meal_book_confirm()
  	{
  		$data_list = $this->input->post('data_list');
- 		$this->load->model('/meal/meal_book');
  		$this->meal_book->insert_orderlist($data_list);
   		//$this->form_validation->set_rules('customer_name','您的大名', 'required');
-
  		$customer_name = $this->input->post('customer_name');
-
- 		$this->input->set_cookie("meal_book_confirm_name",$customer_name,36000);
- 		print_r("下单成功");
+ 		$this->input->set_cookie("meal_book_confirm_name",$customer_name,36000000000);
+ 		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
+ 		$data['project'] = $arrProject;
+ 		$this->load->view('/meal/meal_book',$data);
  	}
 
   	function meal_statistics()
  	{
- 		$this->load->model('/meal/meal_book');
  		$this->meal_book->meal_statistics();
-
  	}	
-
-
 }
 
 ?>
