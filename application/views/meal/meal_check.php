@@ -712,45 +712,7 @@ table.hovertable td {
     window.insert_customer();
     </script>
 
-	<!-- 			<div class="home-3">
-					<div class="home-3-center">
-						<div>
-							<form method="post"  name = "form1" action="<?php echo site_url('meal/meal_book_ok/')?>">
-							 <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
-							  <?php echo $project?>
-
-							  <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
-							  <input type="hidden" name="inplatform" id="inplatform" value="">
-							  <input type="hidden" name="inproject" id="inproject" value="">
-							  </p><br/>
- 
-							  <?php if(!empty($menudata)): ?>
-							  
-							  <form method="post"  name = "form" action="<?php echo site_url('meal/meal_book_confirm/')?>">
-							      <h1 id = "booklist"></h1>
-							      <table>
-							      <tr>
-							      <td class = "STYLE22">总价</td> <td class = "STYLE22"><p id = "money" style="color:#FF0000">0</p> <td class = "STYLE22">元
-							      </tr>
-							      </table>
-							      <p class = "STYLE22" type="text" id"submitinput" name="submit_article">
-							      您的大名：
-							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value=""> </input>
-							      <input type="hidden" name="data_list" id="data_list" value="xxx"></input>
-							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
-							      </p>
-							  </form>
-							   
-							  <?php endif;?>
-							   <p>
-								请您点完餐后，填写上您的大名，确认购物车的订单后，提交订餐！
-							</p>
-							  </form>
-							
-						</div>
-						
-					</div>
-				</div>
+<!-- 
 				<div class="home-4 clearfix">
 						    <?php if(!empty($menudata)):
 						    foreach ($menudata as $row):
@@ -778,7 +740,7 @@ table.hovertable td {
 						    <?php endif;?>
 						    </div>
 
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

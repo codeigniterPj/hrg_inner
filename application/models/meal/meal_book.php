@@ -6,6 +6,7 @@
  			parent::__construct();
  			$this->load->helper('url');
  			$this->load->dbutil();
+ 			$this->load->library('table');
  		} 
 
  		function menulist()
@@ -91,10 +92,35 @@
 
  		function meal_check_restaurant_ok($restaurant_id)
  		{
- 			$sql = "SELECT SUM(number) , menu_name FROM order_list WHERE r_id = '$restaurant_id' GROUP BY menu_name";
+ 			$restaurantid = $this->input->post('project');
+ 			$sql = "SELECT menu_name AS 菜名, SUM(number) AS 数量 FROM order_list WHERE r_id = '$restaurant_id' GROUP BY menu_name";
  			$query = $this->db->query($sql);
- 			print_r($query->result());
+ 			$tmpl = array(
+            'table_open' => '<table align="center" width="50%" class="hovertable" >',
+            
+            'heading_row_start' => '<tr>',
+            'heading_row_end' => '</tr>',
+            'heading_cell_start' => '<th>',
+            'heading_cell_end' => '</th>',
+            
+            'row_start' => '<tr id="ddd">',
+            'row_end' => '</tr>',
+            'cell_start' => '<td>',
+            'cell_end' => '</td>',
+            
+            'row_alt_start' => '<tr>',
+            'row_alt_end' => '</tr>',
+            'cell_alt_start' => '<td>',
+            'cell_alt_end' => '</td>',
+            
+            'table_close' => '</table>'
+        );
+        
+        $this->table->set_template($tmpl);
+        
+        $response = $this->table->generate($query);
 
+        return $response;
  		}
 
 
@@ -125,10 +151,7 @@
 					$number = $row_menu->number;
 					array_push($menu, $menu_name);					
 					array_push($menu, $number);
-					//array_push($order, $menu);
-					//array_push($orderlist, $order);
-					//print_r($orderlist);
-					//unset($menu);
+
  				}
  				array_push($order, $menu);
  				array_push($orderlist, $order);

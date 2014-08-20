@@ -76,7 +76,7 @@ $(".portfolio-1").slideUp();}
 <link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.css"?>type="text/css" />
 <link href=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/demos.css"?> rel="stylesheet" type="text/css" />
 
-<!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script> -->
+
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.min.js"?> type="text/javascript"></script>
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"?> type="text/javascript"></script>
 
@@ -320,11 +320,11 @@ function showValues() {
    var checkSubmitFlg=false;
     if (!checkSubmitFlg) {
     // 第一次提交
-    var platstr = $("#platform").multiselect("update");
+    //var platstr = $("#platform").multiselect("update");
     var usagestr = $("#project").multiselect("update");
 
-    document.getElementById('inplatform').value = platstr;
-    document.getElementById('inproject').value = usagestr;
+    //document.getElementById('inplatform').value = platstr;
+    document.getElementById('project').value = usagestr;
 
     checkSubmitFlg = true;
     return true;
@@ -545,6 +545,26 @@ function confirm()
   });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+  $category = $('.navMenu_son :hidden');
+   $a = $("div:not(.navMenu_son)");
+  if($category.is(':visible'))
+  {  
+   $a.on("mouseover",function(){
+    $category.slideUp("slow");
+  })
+}
+else{
+  console.log("else");
+  
+    $(".parentarea").on("mouseover",function(){
+    $category.slideDown("slow");
+    })
+    }
+});  
+</script>
+
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -628,6 +648,17 @@ table.hovertable td {
   border-style: solid;
   border-color: #a9c6c9;
 }
+.navMenu_son{
+  width: 60px;
+  float: left;
+}
+.navMenu_son a{
+  width:80px;
+  margin-top: 10px;
+  float: left;
+  display: none;
+
+}
 
 </style>
 </head>
@@ -648,7 +679,12 @@ table.hovertable td {
           <div class="headerBottom-1 clearfix">
             <ul class="navMenu clearfix">
               <li><a href="<?php echo site_url('/meal/meal_book/')?>">Home</a></li>
-              <li><a href="<?php echo site_url('/meal/meal_check/')?>">查看订单</a></li>
+              <li><div class="navMenu_son"><span class="parentarea">查看订单</span>
+                      
+                      <a href="<?php echo site_url('/meal/meal_check_restaurant') ?>">查询餐馆订单</a>
+                      <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
+                      
+                  </div></li>
               <li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>  
             </ul>
       <!--      <div class="info clearfix">
@@ -680,31 +716,15 @@ table.hovertable td {
         </div>
         <div class="home-2">
           <div class="home-2-center clearfix">
-            <div class="skills">
-              <div><img src="images/skill-image1.png" alt="minimal design" /></div>
-              <p>Minimal Design</p>
-            </div>
-            <div class="skills">
-              <div><img src="images/skill-image2.png" alt="minimal design" /></div>
-              <p>Easy Installation</p>
-            </div>
-            <div class="skills">
-              <div><img src="images/skill-image3.png" alt="minimal design" /></div>
-              <p>Browser Support</p>
-            </div>
-            <div class="skills">
-              <div><img src="images/skill-image4.png" alt="minimal design" /></div>
-              <p>SEO Friendly</p>
-            </div>
-            <div class="skills">
-              <div><img src="images/skill-image5.png" alt="minimal design" /></div>
-              <p>Unlimited Versions</p>
-            </div>
-            <div class="weCreate">
-              <h2>
-                ...
-              </h2>
-            </div>
+              <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_restaurant_ok/')?>">
+               <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
+                <?php echo $project?>
+
+                <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
+                <input type="hidden" name="inplatform" id="inplatform" value="">
+                <input type="hidden" name="project" id="project" value="">
+                </p><br/>
+               </form>
           </div>
         </div>
     <script>
@@ -712,86 +732,30 @@ table.hovertable td {
     window.insert_customer();
     </script>
 
-  <!--      <div class="home-3">
-          <div class="home-3-center">
-            <div>
-              <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_book_ok/')?>">
-               <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
-                <?php echo $project?>
-
-                <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
-                <input type="hidden" name="inplatform" id="inplatform" value="">
-                <input type="hidden" name="inproject" id="inproject" value="">
-                </p><br/>
- 
-                <?php if(!empty($menudata)): ?>
-                
-                <form method="post"  name = "form" action="<?php echo site_url('meal/meal_book_confirm/')?>">
-                    <h1 id = "booklist"></h1>
-                    <table>
-                    <tr>
-                    <td class = "STYLE22">总价</td> <td class = "STYLE22"><p id = "money" style="color:#FF0000">0</p> <td class = "STYLE22">元
-                    </tr>
-                    </table>
-                    <p class = "STYLE22" type="text" id"submitinput" name="submit_article">
-                    您的大名：
-                    <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value=""> </input>
-                    <input type="hidden" name="data_list" id="data_list" value="xxx"></input>
-                    <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
-                    </p>
-                </form>
-                 
-                <?php endif;?>
-                 <p>
-                请您点完餐后，填写上您的大名，确认购物车的订单后，提交订餐！
-              </p>
-                </form>
-              
-            </div>
+  
+        <div class="home-4">
+                <div>
+             <?php if(!empty($response)):
+             echo $response;
+             ?>
+           <?php endif ?>
+             </div> 
+          </div>
             
-          </div>
-        </div>
-        <div class="home-4 clearfix">
-                <?php if(!empty($menudata)):
-                foreach ($menudata as $row):
-                foreach ($row as $menutype => $menucontent):?>
-              <div>
-                <p><?php echo $menutype;?></p>
-                <table width="70%" border="<?php echo $border ?>" class="hovertable" id='total'>
-
-                 <?php foreach($menucontent as $key => $value):
-                 $name_price = explode(",", $value);
-                 $name = $name_price[0];
-                 $price = $name_price[1];
-                 ?>
-
-                <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-                  <td ><div align="center"><span class="STYLE10"><?php echo $key?></span></div></td>
-                  <td ><div align="center"><span class="STYLE10"><?php echo $name?></span></div></td>
-                  <td ><div align="center"><span class="STYLE10"><?php echo $price . "元"?></span></div></td>
-                  <td ><div align="center"><span class="STYLE10"><a value="<?php echo $key?>" name = "<?php echo $name?>" id = "<?php echo $price ?>" style="color:#FF0000" href="javascript:void(0)" onclick="SetOrderForm(this.value,this.name,'1',this.id);WriteOrderInDiv();">点击订我</a></span></div></td>
-                 </tr>
-                <?php endforeach; ?>
-                </table>
-                <?php endforeach; ?>
-                <?php endforeach; ?>
-                <?php endif;?>
-                </div>
-
-          </div>
         </div>
       </div>
     </div>
 </div>
-  -->
+
   
 
 
   <div id="footer">
-    <div align="center">
+    <div >
       <p>Copyright &copy; 2012-2014 &nbsp;.&nbsp;HRG All rights reserved.</p>
     </div>
   </div>
+
 
 
 </body>

@@ -13,6 +13,7 @@
  		$this->load->library('pagination'); 
  		$this->load->library('table');
  		$this->load->model('common');
+ 		$this->load->model('/meal/meal_book');
  	}
 
  	function meal_book()
@@ -21,7 +22,7 @@
  		// $this->mauth->get_auth($this->session->userdata('power'),$md);
  		$arrProject = $this->common->generatePj(array('鲜粥道'),"project");
  		$data['project'] = $arrProject;
- 		$data['border'] = 0;
+ 		$data['border'] = 1;
  		//$data['menuid'] = $menuid;
  		$this->load->view('/meal/meal_book',$data);
  	}
@@ -39,19 +40,39 @@
  		$this->load->view('/meal/meal_book',$data);
  	}
 
+ 	function meal_check_person()
+ 	{
+
+ 		$this->load->view('/meal/check_person');
+ 	}
+
+	function meal_check_restaurant()
+ 	{
+ 		$arrProject = $this->common->generatePj(array('鲜粥道'),"project");
+ 		$data['project'] = $arrProject;
+ 		$data['border'] = 1;
+ 		$this->load->view('/meal/check_restaurant',$data);
+ 	}
+
 
  	function meal_check_person_ok()
  	{
  		$this->load->model('/meal/meal_book');
+ 		$customer_name = $this->input->post('customer_name');
  		$this->meal_book->meal_check_person_ok('123');
+ 		$this->load->view('/meal/check_person');
  		//$this->load->view('/meal/meal_check',$data);
  	}
 
  	function meal_check_restaurant_ok()
  	{
-
+ 		$project = $this->input->post('project');
  		$this->load->model('/meal/meal_book');
- 		$this->meal_book->meal_check_restaurant_ok(1);
+ 		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
+ 		$data['project'] = $arrProject;
+ 		$response = $this->meal_book->meal_check_restaurant_ok($project);
+ 		$data['response'] = $response;
+ 		$this->load->view('/meal/check_restaurant',$data);
  		//$this->load->view('/meal/meal_check',$data);
  	}
 

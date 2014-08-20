@@ -57,7 +57,7 @@ body{
 }
  
 .clearfix {
-	display: inline-block;
+	display: block;
 	margin: 0 auto;
 }
  
@@ -162,6 +162,7 @@ html[xmlns] .clearfix {
 	font-family: "Microsoft yahei";
 	position: relative;
 	top: 3px;
+	 width: 80px;
 }
 
 .navMenu li.activeLink{
