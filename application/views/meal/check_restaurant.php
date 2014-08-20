@@ -733,7 +733,7 @@ table.hovertable td {
 
 	
 				<div class="home-4">
-						    <div>
+					<div>
              <?php if(!empty($response)):
              echo $response;
              ?>

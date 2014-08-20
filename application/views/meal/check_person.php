@@ -672,7 +672,6 @@ table.hovertable td {
               <h1><a href="#">&nbsp;</a></h1>
               <p>大火溶内部网站</p>
             </div>
-            
           </div>
         </div>
         <div class="headerBottom">
@@ -698,9 +697,7 @@ table.hovertable td {
                  <input type="button" value="清空" onclick="clearOrder();WriteOrderInDiv();" />
                  <input type="button" value="展开/收缩" onclick="show('Cart')" />
                 </div>
-                
               </div>
-
             </div> -->
           </div>
           <div class="menuBottom"></div>
@@ -718,7 +715,7 @@ table.hovertable td {
           <div class="home-2-center clearfix">
               <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_person_ok/')?>">
                <p class = "STYLE22">
-                <input class="STYLE22" type="text" id="customer_name" placeholder="请输入姓名" />
+                <input class="STYLE22" type="text" id="c_name" name = "c_name" placeholder="请输入姓名" value = "<?php if(!empty($c_name)) echo $c_name; ?>"/>
                 <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
                 </p><br/>
                </form>
@@ -729,23 +726,19 @@ table.hovertable td {
     window.insert_customer();
     </script>
 
-  
         <div class="home-4">
-                <div>
+          <div>
              <?php if(!empty($response)):
              echo $response;
              ?>
            <?php endif ?>
-             </div> 
+          </div> 
           </div>
             
         </div>
       </div>
     </div>
 </div>
-
-  
-
 
   <div id="footer">
     <div >

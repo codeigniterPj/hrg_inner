@@ -1,12 +1,34 @@
 <?php
 	class meal_book extends CI_Model
 	{
+		private $tmpl;
 		function __construct()
  		{
  			parent::__construct();
  			$this->load->helper('url');
  			$this->load->dbutil();
  			$this->load->library('table');
+ 			$this->tmpl = array(
+            'table_open' => '<table align="center" width="50%" class="hovertable" >',
+            
+            'heading_row_start' => '<tr>',
+            'heading_row_end' => '</tr>',
+            'heading_cell_start' => '<th>',
+            'heading_cell_end' => '</th>',
+            
+            'row_start' => '<tr id="ddd">',
+            'row_end' => '</tr>',
+            'cell_start' => '<td>',
+            'cell_end' => '</td>',
+            
+            'row_alt_start' => '<tr>',
+            'row_alt_end' => '</tr>',
+            'cell_alt_start' => '<td>',
+            'cell_alt_end' => '</td>',
+            
+            'table_close' => '</table>'
+        );
+        
  		} 
 
  		function menulist()
@@ -95,71 +117,34 @@
  			$restaurantid = $this->input->post('project');
  			$sql = "SELECT menu_name AS 菜名, SUM(number) AS 数量 FROM order_list WHERE r_id = '$restaurant_id' GROUP BY menu_name";
  			$query = $this->db->query($sql);
- 			$tmpl = array(
-            'table_open' => '<table align="center" width="50%" class="hovertable" >',
-            
-            'heading_row_start' => '<tr>',
-            'heading_row_end' => '</tr>',
-            'heading_cell_start' => '<th>',
-            'heading_cell_end' => '</th>',
-            
-            'row_start' => '<tr id="ddd">',
-            'row_end' => '</tr>',
-            'cell_start' => '<td>',
-            'cell_end' => '</td>',
-            
-            'row_alt_start' => '<tr>',
-            'row_alt_end' => '</tr>',
-            'cell_alt_start' => '<td>',
-            'cell_alt_end' => '</td>',
-            
-            'table_close' => '</table>'
-        );
-        
-        $this->table->set_template($tmpl);
-        
-        $response = $this->table->generate($query);
-
-        return $response;
+            $this->table->set_template($this->tmpl);
+            $response = $this->table->generate($query);
+            return $response;
  		}
 
 
  		function meal_check_person_ok($person_name)
  		{
  			$orderlist = array();
- 			$sql = "SELECT olp.`name`,olp.name_id,olp.order_date,olp.price_all,rt.restaurant_name,olp.r_id
+ 			$sql = "SELECT
+ 					rt.restaurant_name AS 餐馆名,
+					olp.`name` AS 名字,
+					ol.menu_name AS 菜名,
+					ol.number AS 数量,
+					olp.order_date AS 最终下单时间,
+					olp.price_all AS 总价
+
 					FROM
-					order_list_person AS olp,
-					restaurant AS rt
+						order_list_person AS olp,
+						restaurant AS rt,
+						order_list AS ol
 					WHERE
-					NAME = '$person_name'
-					AND olp.r_id = rt.restaurant_id";
- 			//print_r($sql);
+						NAME = '$person_name'
+					AND olp.r_id = rt.restaurant_id AND olp.name_id = ol.name_id AND olp.r_id = ol.r_id";
  			$query = $this->db->query($sql);
- 			foreach ($query->result() as $row) {
- 				$menu = array();
- 				$order = array();
- 				$r_id = $row->r_id;
- 				$name_id = $row->name_id;
- 				array_push($order, $row->order_date);
- 				array_push($order, $row->price_all);
- 				array_push($order, $row->restaurant_name);
- 				$sql = "SELECT * FROM order_list WHERE r_id = '$r_id' AND name_id = '$name_id'";
- 				$query = $this->db->query($sql);
- 				foreach ($query->result() as $row_menu) {
-					$menu_name =  $row_menu->menu_name;
-					$number = $row_menu->number;
-					array_push($menu, $menu_name);					
-					array_push($menu, $number);
-
- 				}
- 				array_push($order, $menu);
- 				array_push($orderlist, $order);
- 				unset($menu);
- 				unset($order);
- 			}
-
- 			print_r($orderlist);
+            $this->table->set_template($this->tmpl);
+            $response = $this->table->generate($query);
+            return $response;
  		}
 
 	}

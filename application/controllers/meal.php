@@ -9,6 +9,7 @@
  		$this->load->helper('form');
  		//$this->load->model('mauth');
  		//$this->load->dbutil();
+ 		$this->load->helper('cookie');
  		$this->load->helper('file');
  		$this->load->library('pagination'); 
  		$this->load->library('table');
@@ -42,8 +43,9 @@
 
  	function meal_check_person()
  	{
+ 		$data['c_name'] = $this->input->cookie("person_name");
+ 		$this->load->view('/meal/check_person',$data);
 
- 		$this->load->view('/meal/check_person');
  	}
 
 	function meal_check_restaurant()
@@ -58,9 +60,10 @@
  	function meal_check_person_ok()
  	{
  		$this->load->model('/meal/meal_book');
- 		$customer_name = $this->input->post('customer_name');
- 		$this->meal_book->meal_check_person_ok('123');
- 		$this->load->view('/meal/check_person');
+ 		$customer_name = $this->input->post('c_name');
+ 		$this->input->set_cookie("person_name",$customer_name,36000);
+ 		$data['response'] = $this->meal_book->meal_check_person_ok($customer_name);
+ 		$this->load->view('/meal/check_person',$data);
  		//$this->load->view('/meal/meal_check',$data);
  	}
 
