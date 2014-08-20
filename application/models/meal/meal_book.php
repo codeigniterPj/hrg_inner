@@ -58,7 +58,7 @@
 
  		function insert_orderlist($meallist)
  		{
- 			print_r($meallist);
+ 			//print_r($meallist);
  			if(empty($meallist))
  				return;
 	  		$meallist = json_decode($meallist,true);
@@ -69,7 +69,7 @@
 	 			$orderlist = $info['orders_info'];
 	 			$count = $info['total'];
 	 		}			
-	 		$time = date('y-m-d h:i:s',time());
+	 		$time = date('y-m-d H:i:s',time());
 	 		$sql = "SELECT * FROM order_list_person WHERE name = '$name' AND r_id = '$r_id'";
 	 		$query = $this->db->query($sql);
 	 		if($query->result())

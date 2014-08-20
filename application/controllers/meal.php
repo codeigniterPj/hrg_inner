@@ -36,6 +36,7 @@
  		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
  		$data['project'] = $arrProject;
  		$data['menudata'] = $this->meal_book->menulist();
+ 		$data['m_name'] = $this->input->cookie("meal_book_confirm_name");
  		//$data['menuid'] = $menuid;
  		$data['border'] = 1;
  		$this->load->view('/meal/meal_book',$data);
@@ -62,6 +63,7 @@
  		$this->load->model('/meal/meal_book');
  		$customer_name = $this->input->post('c_name');
  		$this->input->set_cookie("person_name",$customer_name,36000);
+ 		$data['c_name'] = $this->input->cookie("person_name");
  		$data['response'] = $this->meal_book->meal_check_person_ok($customer_name);
  		$this->load->view('/meal/check_person',$data);
  		//$this->load->view('/meal/meal_check',$data);
@@ -90,6 +92,8 @@
  		$data_list = $this->input->post('data_list');
  		$this->load->model('/meal/meal_book');
  		$this->meal_book->insert_orderlist($data_list);
+ 		$customer_name = $this->input->post('customer_name');
+ 		$this->input->set_cookie("meal_book_confirm_name",$customer_name,36000);
  		print_r("下单成功");
  	}
 
