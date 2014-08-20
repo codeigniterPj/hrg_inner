@@ -130,7 +130,14 @@
 							<h1><a href="#">&nbsp;</a></h1>
 							<p>大火溶内部网站</p>
 						</div>
-				
+						<div class="headerRight clearfix">
+							<div class="buttonsSmall clearfix">
+
+							<a href="<?php echo site_url('/admin_login/index/')?>" class="button3">管理员登陆</a>
+							
+							</div>
+						</div>
+
 					</div>
 				</div>
 				<div class="headerBottom">
@@ -196,21 +203,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="home-3">
-					<div class="home-3-center">
-						<div>
-							<h3>
-								Check out the great features of the theme and purchase 
-								<span>Awesome now....</span>
-							</h3>
-							<p>
-								Awesome is available for the ridiculously low, one-time cost of $35! That's 
-								right, I'm practically giving it away!
-							</p>
-						</div>
-						<a href="#" class="purchaseTheme">Purchase the Theme</a>
-					</div>
-				</div>
+		
 			
 			</div>
 		</div><!-- HOME SECTION END -->
@@ -278,73 +271,74 @@
 						<li><a href="javascript:;" class="wp">Wordpress Themes</a></li>
 					</ul>
 					<div class="portfolioItems clearfix">
-											<div class="portfolioItem" data-type="design" data-id="223">
-						<a href="javascript:showfolio('1');">
+					    <div class="portfolioItem" data-type="design" data-id="223">
+						    <a href="javascript:showfolio('1');">
 							<img src="images/portImage1.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('1');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem" data-type="wp" data-id="223w">
-						<a href="javascript:showfolio('2');">
+						<div class="portfolioItem" data-type="wp" data-id="223w">
+						    <a href="javascript:showfolio('2');">
 							<img src="images/portImage2.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('2');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem" data-type="photography" data-id="22ss3">
-						<a href="javascript:showfolio('3');">
+						<div class="portfolioItem" data-type="photography" data-id="22ss3">
+						    <a href="javascript:showfolio('3');">
 							<img src="images/portImage3.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('3');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem portItemFix" data-type="design" data-id="22aa3">
-						<a href="javascript:showfolio('4');">
+						<div class="portfolioItem portItemFix" data-type="design" data-id="22aa3">
+						    <a href="javascript:showfolio('4');">
 							<img src="images/portImage4.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('4');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem" data-type="illustration" data-id="2a23">
-						<a href="javascript:showfolio('5');">
+						<div class="portfolioItem" data-type="illustration" data-id="2a23">
+						    <a href="javascript:showfolio('5');">
 							<img src="images/portImage5.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('5');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem" data-type="wp" data-id="2as23">
-						<a href="javascript:showfolio('6');">
+						<div class="portfolioItem" data-type="wp" data-id="2as23">
+						    <a href="javascript:showfolio('6');">
 							<img src="images/portImage6.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('6');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem" data-type="illustration" data-id="22d3">
-						<a href="javascript:showfolio('7');">
+						<div class="portfolioItem" data-type="illustration" data-id="22d3">
+						    <a href="javascript:showfolio('7');">
 							<img src="images/portImage7.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('7');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-												<div class="portfolioItem portItemFix" data-type="print" data-id="223aa">
-						<a href="javascript:showfolio('8');">
+						<div class="portfolioItem portItemFix" data-type="print" data-id="223aa">
+						    <a href="javascript:showfolio('8');">
 							<img src="images/portImage8.jpg" alt="portfolio item image" />
 							</a>
 							<a href="javascript:showfolio('8');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
-						<div>
-						   <p><a href="<?php echo site_url('/files/upload')?>" class="readMore">Read more</a></p>
-						</div>
 					</div>
 				</div>
-				
-				<div class="portfolio-3">
-					
-				</div>
+			</div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box">
+			  <a href="<?php echo site_url('/files/upload')?>" class="readMore">查看更多</a>
 			</div>
 		</div><!-- PORTFOLIO SECTION END -->
+			
 	</div>
 	
 
@@ -383,7 +377,7 @@
 									explicabo. Donec ut volutpat metus. Aliquam tortor
 									Sed ut perspiciatis unde omnis..
 								</p>
-								<a href="<?php echo site_url('/meal/meal_book/')?>" class="readMore">Read more</a>
+								<a href="<?php echo site_url('/meal/meal_book/')?>" class="readMore">立即订饭</a>
 							</div>
 						</div>
 					</div>

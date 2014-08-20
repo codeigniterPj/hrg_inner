@@ -235,6 +235,7 @@ ul .navMenu .clearfix{
 .content{
 	position: relative;
 	top: -3px;
+	min-height: 790px;
 }
 
 .contentTitle1{
@@ -333,11 +334,13 @@ a.checkPortfolio:hover{
 .home-2{
 	background: url(../images/home-2_bg.gif) repeat-x;
 	height: 136px;
+	z-index: -100;
 }
 
 .home-2-center, .home-3-center, .home-4{
 	width: 980px;
 	margin: 0 auto;
+	margin-top: 60px;
 }
 
 .skills{
@@ -842,6 +845,21 @@ cursor: pointer;
 	height: 24px;
 }
 
+.box{
+	margin-top: 0;
+	float: left;
+	width: 250px;
+	padding-top: 0;
+	margin-bottom: 100px;
+
+}
+.box a{
+	border:0;
+	margin-top: 0px;
+	border-top: 0px;
+	padding-top: 0px;
+	display: block;
+}
 /* ----------- END content portfolio ----------*/
 
 /* ----------- content services ---------- */
@@ -1341,7 +1359,13 @@ a.signUp:hover{
 .info {
 margin-top: 22px;}
 .buttons{
-	margin-top: 30px;
+	margin-top: 0px;
+	margin-left: 200px;
+}
+.buttonsSmall{
+	padding-top: 0px;
+	margin-top: 0px;
+	margin-left: 200px;
 }
 
 .buttons a, .buttonsSmall a{

@@ -556,12 +556,6 @@ function confirm()
 
   document.getElementById('data_list').value = updataOrderData_json();
   var money = parseInt(document.getElementById("total").innerHTML);
-  var m_name = document.getElementById("customer_name").value;
-  if(m_name == "")
-  {
-    alert("您的大名还没有填呢！" );
-    return;
-  }
   alert("你一共需要支付" + money + "人民币！" );
   //console.log(document.getElementById('data_list').value);
   save_Customername();
@@ -719,40 +713,7 @@ table.hovertable td {
 				</div>
 			</div>
 			<div class="content">
-				<div class="home-1">
-					<h1>Hey ! I am<br /><span>Business <span class="agencySpan">Agency</span></span></h1>
-					<p>
-						Aenean lacinia bibendum nulla sed consectetur. Cras mattis 
-						consectetur purus sit amet fermentum. Donec id elit non 
-						mi porta gravida at eget.
-					</p>
-					<a href="#" class="checkPortfolio">Check our Portfolio</a>
-				</div>
-				<div class="home-2">
-					<div class="home-2-center clearfix">
-						<div class="skills">
-							<div><img src="images/skill-image1.png" alt="minimal design" /></div>
-							<p>Minimal Design</p>
-						</div>
-						<div class="skills">
-							<div><img src="images/skill-image2.png" alt="minimal design" /></div>
-							<p>Easy Installation</p>
-						</div>
-						<div class="skills">
-							<div><img src="images/skill-image3.png" alt="minimal design" /></div>
-							<p>Browser Support</p>
-						</div>
-						<div class="skills">
-							<div><img src="images/skill-image4.png" alt="minimal design" /></div>
-							<p>SEO Friendly</p>
-						</div>
-						<div class="skills">
-							<div><img src="images/skill-image5.png" alt="minimal design" /></div>
-							<p>Unlimited Versions</p>
-						</div>
-						
-					</div>
-				</div>
+				
 				<div class="home-3">
 					<div class="home-3-center">
 						<div>
@@ -781,8 +742,8 @@ table.hovertable td {
 							      </table>
 							      <p class = "STYLE22" type="text" id"submitinput" name="submit_article">
 							      您的大名：
-							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
-							      <input type="hidden" name="data_list" id="data_list" value=""></input>
+							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value=""> </input>
+							      <input type="hidden" name="data_list" id="data_list" value="xxx"></input>
 							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
 							      </p>
 							  </form>

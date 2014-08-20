@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,71 +10,110 @@
 <base href="<?php echo base_url() ;?>"/> 
 <base target="_self">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<link rel="stylesheet" type="text/css" href="./css/main.css"/>
-	
-	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery-1.7.2.min.js"?>></script>
-	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.scrollTo.js"?>></script>
-	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.nav.js"?>></script>
-	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.quicksand.js"?>></script> 
-	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/easing.js"?>></script> 
-
-  <script type="text/javascript">
-$(document).ready(function(){
-  $category = $('.navMenu_son :hidden');
-   $a = $("div:not(.navMenu_son)");
-  if($category.is(':visible'))
-  {  
-   $a.on("mouseover",function(){
-    $category.slideUp("slow");
-  })
-}
-else{
-  console.log("else");
+  <link rel="stylesheet" type="text/css" href="./css/main.css"/>
   
-    $(".parentarea").on("mouseover",function(){
-    $category.slideDown("slow");
-    })
-    }
-});  
+  <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery-1.7.2.min.js"?>></script>
+  <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.scrollTo.js"?>></script>
+  <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.nav.js"?>></script>
+  <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.quicksand.js"?>></script> 
+  <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/easing.js"?>></script> 
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script type="text/javascript">
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i;}
+  return i;
+}
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+console.log('h =======' + h);
+console.log('m =======' + m);
+console.log('s =======' + s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);
+}
+</script>
+<!---->
+<link href=<?php echo $this->config->item('base_url')."/style/css/templatemo_style.css" ?> rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href=<?php echo $this->config->item('base_url')."style/css/nivo-slider.css"?> type="text/css" media="screen" />
+
+<script type="text/javascript" src=<?php echo $this->config->item('base_url')."style/js/jquery.min.js"?>> </script>
+
+<script language="javascript" type="text/javascript">
+function clearText(field){
+
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+
+}
 </script>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".navMenu").onePageNav();
-			
-	// Clone applications to get a second collection
-	var $data = $(".portfolioItems").clone();
-	
-	//NOTE: Only filter on the main portfolio page, not on the subcategory pages
-	$('.portfolioSort li a').click(function(e) {
-		$(".portfolioSort li a").removeClass("activePSLink");	
-		// Use the last category class as the category to filter by. This means that multiple categories are not supported (yet)
-		var filterClass=$(this).attr('class').split(' ').slice(-1)[0];
-		
-		if (filterClass == 'all') {
-			var $filteredData = $data.find('.portfolioItem');
-		} else {
-			var $filteredData = $data.find('.portfolioItem[data-type=' + filterClass + ']');
-		}
-		$(".portfolioItems").quicksand($filteredData, {
-			duration: 800,
-			easing: 'swing',
-		});		
-		$(this).addClass("activePSLink"); 			
-		return false;
-	});
-	
-		});
-					function showfolio(number){
-			$.ajax({
-			type: 'POST',
-			dataType:'html',
+<script type="text/javascript" src=<?php echo $this->config->item('base_url')."style/js/ddsmoothmenu.js"?>></script>
+
+<script type="text/javascript">
+  ddsmoothmenu.init({
+  mainmenuid: "templatemo_menu", //menu DIV id
+  orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+  classname: 'ddsmoothmenu', //class added to menu's outer DIV
+  //customtheme: ["#1c5a80", "#18374a"],
+  contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+</script>
+<!---->
+<style type="text/css">
+#welcome {
+   color: red;
+   background:-webkit-gradient(linear, left top, left 24, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+    }
+
+}
+</style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".navMenu").onePageNav();
+      
+  // Clone applications to get a second collection
+  var $data = $(".portfolioItems").clone();
+  
+  //NOTE: Only filter on the main portfolio page, not on the subcategory pages
+  $('.portfolioSort li a').click(function(e) {
+    $(".portfolioSort li a").removeClass("activePSLink"); 
+    // Use the last category class as the category to filter by. This means that multiple categories are not supported (yet)
+    var filterClass=$(this).attr('class').split(' ').slice(-1)[0];
+    
+    if (filterClass == 'all') {
+      var $filteredData = $data.find('.portfolioItem');
+    } else {
+      var $filteredData = $data.find('.portfolioItem[data-type=' + filterClass + ']');
+    }
+    $(".portfolioItems").quicksand($filteredData, {
+      duration: 800,
+      easing: 'swing',
+    });   
+    $(this).addClass("activePSLink");       
+    return false;
+  });
+  
+    });
+          function showfolio(number){
+      $.ajax({
+      type: 'POST',
+      dataType:'html',
   url: "portfolio.php?id="+number,
   success: function(data) { 
   //alert(data);
   $(".portfolio-1").empty().append(data).slideDown();
 }
-			});}
+      });}
 function outhere(){
 $(".portfolio-1").slideUp();}
 </script>
@@ -101,11 +145,31 @@ $(".portfolio-1").slideUp();}
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.min.js"?> type="text/javascript"></script>
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"?> type="text/javascript"></script>
 
+        <script type="text/javascript">
+$(document).ready(function(){
+  $category = $('.navMenu_son :hidden');
+   $a = $("div:not(.navMenu_son)");
+  if($category.is(':visible'))
+  {  
+   $a.on("mouseover",function(){
+    $category.slideUp("slow");
+  })
+}
+else{
+  console.log("else");
+  
+    $(".parentarea").on("mouseover",function(){
+    $category.slideDown("slow");
+    })
+    }
+});  
+</script>
+
 <script type="text/javascript">
 
 function init_customer(){
-	var date = new Date();
-	document.cookie="customer='';expires=" + date.toGMTString();
+  var date = new Date();
+  document.cookie="customer='';expires=" + date.toGMTString();
 }
 
 function init_InameArr(){
@@ -342,10 +406,10 @@ function showValues() {
     if (!checkSubmitFlg) {
     // 第一次提交
     //var platstr = $("#platform").multiselect("update");
-    //var usagestr = $("#project").multiselect("update");
+    var usagestr = $("#project").multiselect("update");
 
     //document.getElementById('inplatform').value = platstr;
-    //document.getElementById('project').value = usagestr;
+    document.getElementById('project').value = usagestr;
 
     checkSubmitFlg = true;
     return true;
@@ -511,41 +575,41 @@ function book(name,value)
 }
 //保存用户的名字信息到cookie，设置为永久
 function save_Customername(){
-	var customer_name=document.getElementById("customer_name").value;
-	var Then = new Date();
+  var customer_name=document.getElementById("customer_name").value;
+  var Then = new Date();
     Then.setTime(Then.getTime()+60*60*1000);
 
     if(!(ReadOrderForm('customer')))//判断cookie中是否有customer以及customer的值，如果没有，初始化
         {
-	          init_customer();
-	          var customer = '';
-	          document.cookie="customer="+escape(customer_name)+";expires=" + Then.toGMTString();
+            init_customer();
+            var customer = '';
+            document.cookie="customer="+escape(customer_name)+";expires=" + Then.toGMTString();
         }
         else 
         {
-		    var customer=ReadOrderForm('customer');
-		 	document.cookie="customer="+customer+escape('|'+customer_name)+";expires=" + Then.toGMTString();
-		 	console.log(customer);
- 		}
+        var customer=ReadOrderForm('customer');
+      document.cookie="customer="+customer+escape('|'+customer_name)+";expires=" + Then.toGMTString();
+      console.log(customer);
+    }
 }
 
 function insert_customer(){
-	if(!(ReadOrderForm('customer')))//判断cookie中是否有customer以及customer的值，如果没有，初始化
+  if(!(ReadOrderForm('customer')))//判断cookie中是否有customer以及customer的值，如果没有，初始化
         {
-	          
-	          return;
+            
+            return;
         }
         else 
         {
-		    var customer=unescape(ReadOrderForm('customer'));
-		    var cusArr = new array();
-		 	cusArr = customer.split("|");
-		 	if(document.getElementById("customer_name").value!=null)
-		 	{
-		 		document.getElementById("customer_name").value = cusArr[0];
-		 	}
-		 	console.log(document.getElementById("customer_name").value);
- 		}
+        var customer=unescape(ReadOrderForm('customer'));
+        var cusArr = new array();
+      cusArr = customer.split("|");
+      if(document.getElementById("customer_name").value!=null)
+      {
+        document.getElementById("customer_name").value = cusArr[0];
+      }
+      console.log(document.getElementById("customer_name").value);
+    }
 }
 
 
@@ -565,6 +629,8 @@ function confirm()
     TotalCount();
   });
 </script>
+
+
 
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -626,33 +692,33 @@ td{
 }
 /*  后加的高亮显示  */
  table.hovertable {
-	font-family: verdana,arial,sans-serif;
-	font-size:11px;
-	color:#333333;
-	border-width: 1px;
-	border-color: #999999;
-	border-collapse: collapse;
+  font-family: verdana,arial,sans-serif;
+  font-size:11px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #999999;
+  border-collapse: collapse;
 }
 table.hovertable th {
-	background-color:#c3dde0;
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
+  background-color:#c3dde0;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
 }
 table.hovertable tr {
-	background-color:#d4e3e5;
+  background-color:#d4e3e5;
 }
 table.hovertable td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
 }
 .navMenu_son{
   width: 60px;
   float: left;
-  cursor: pointer;
+    cursor: pointer;
 }
 .navMenu_son a{
   width:80px;
@@ -664,82 +730,136 @@ table.hovertable td {
 
 </style>
 </head>
-<body>
-	<div id="home">
-		<div class="container">
-			<div class="header">
-				<div class="headerTop">
-					<div class="headerTop-1 clearfix">
-						<div class="headerLeft clearfix">
-							<h1><a href="#">&nbsp;</a></h1>
-							<p>大火溶内部网站</p>
-						</div>
-						
-					</div>
-				</div>
-				<div class="headerBottom">
-					<div class="headerBottom-1 clearfix">
-						<ul class="navMenu clearfix">
-							<li><a href="<?php echo site_url('/meal/meal_book/')?>">Home</a></li>
-							<li><div class="navMenu_son"><span class="parentarea">查看订单</span>
-                      
-                      <a href="<?php echo site_url('/meal/meal_check_restaurant') ?>">查询餐馆订单</a>
-                      <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
-                      
-                  </div></li>
-							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>	
-						</ul>
-			<!-- 			<div class="info clearfix">
-							<div  width="300px" id="shopping_car">
-							  <div id="Cart" style="line-height: 24px; font-size: 12px; background-color: #f0f0f0;
-							            border-top: 1px #ffffff solid；display:none; ">
-							  </div>
-							  <div id="Info">
-							            总计：<strong><span id="total" style="color: #FF0000; font-size: 36px ; height: 10px;
-							  width: 10px;">0</span></strong>元
-							   <input type="button" value="清空" onclick="clearOrder();WriteOrderInDiv();" />
-							   <input type="button" value="展开/收缩" onclick="show('Cart')" />
-							  </div>
-							  
-							</div>
+<body onLoad="startTime()">
+  <div id="home">
+    <div class="container">
+      <div class="header">
+        <div class="headerTop">
+          <div class="headerTop-1 clearfix">
+            <div class="headerLeft clearfix">
+              <h1><a href="#">&nbsp;</a></h1>
+              <p>大火溶内部网站</p>
+            </div>
+            
+          </div>
+        </div>
+        <div class="headerBottom">
+          <div class="headerBottom-1 clearfix">
+            <ul class="navMenu clearfix">
+              <li><a href="<?php echo site_url('/admin_login/#/')?>">Home</a></li>
+              <li><a href="<?php echo site_url('/admin_login/#/')?>">文件上传</a></li>
+              <li><a href="<?php echo site_url('/admin_login/#/')?>">新闻发布</a></li>  
+            </ul>
+     
+          </div>
+          <div class="menuBottom"></div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="home-1">
+          <h1> <br /><span>施工期间 <span class="agencySpan">!</span></span></h1>
+          <p>
+            正在施工，敬请期待！
+          </p>
+          <a href="#" class="checkPortfolio">Check our Portfolio</a>
+        </div>
+        <div class="home-2">
+            <div class="home-2-center clearfix">
+            <div class="skills">
+              <div><img src="images/skill-image1.png" alt="minimal design" /></div>
+              <p>Minimal Design</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image2.png" alt="minimal design" /></div>
+              <p>Easy Installation</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image3.png" alt="minimal design" /></div>
+              <p>Browser Support</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image4.png" alt="minimal design" /></div>
+              <p>SEO Friendly</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image5.png" alt="minimal design" /></div>
+              <p>Unlimited Versions</p>
+            </div>
+            <div class="weCreate">
+              <h2>
+                We create Clean, Modern and Eye Catching websites which helps your
+                business to grow better...
+              </h2>
+            </div>
+          </div>
+<div class="ddshadow toplevelshadow" style="left: 840px; top: 196px; width: 160px; height: 0px; display: block; overflow: hidden;"></div>
+<div class="ddshadow toplevelshadow" style="left: 1000.5px; top: 196px; height: 0px; display: block; width: 160px; overflow: hidden;"></div>
+<div id="templatemo_wrapper">
+<div id="welcome">
+<?php echo "尊敬的".$name."用户，欢迎使用！现在是北京时间："?> <span id="txt"></span>
+</div>
+ 
+    
+ 
+    
 
-						</div> -->
-					</div>
-					<div class="menuBottom"></div>
-				</div>
-			</div>
-			<div class="content">
-				
-				<div class="home-2">
-					<div class="home-2-center clearfix">
-						  <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_restaurant_ok/')?>">
-               <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
-                <?php echo $project?>
 
-                <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
+<div>
 
-                </p><br/>
-               </form>
-					</div>
-				</div>
+<?php foreach ($news as $news_item): ?>
+
+   <h2><?php echo $news_item['title'] ?></h2>
+   <div class="main">
+<?php echo $news_item['text'] ?>
+  </div>
+    <p><a href="http://localhost/index.php/news/<?php echo $news_item['slug'] ?>">View article</a></p>
+
+<?php endforeach ?>
+
+</div>
+
+
+
+<div>
+<?php foreach ($file_name as $file_item): ?>
+ <form method="post" id="file" name = "form1" action="<?php echo site_url('login/downFile')?>">
+  <div id='file_list' >
+  <ul>
+  <li><input type="hidden" id = "<?php echo $file_item['file_name'] ?>" name = "<?php echo $file_item['file_name'] ?>" value = "<?php echo $file_item['file_name'] ?>"/><span><?php echo $file_item['file_name'] ?></span>
+  <input type="submit" id="<?php echo $file_item['file_name']?>" value="下载" /></li></div>
+  </form>
+<?php endforeach ?>
+</div>
+
+<div class=upload>
+<?php echo form_open_multipart('./upload/uploading/');?>
+<form>
+<input type="file" name="userfile" value="" size="20" />
+
+<input type="submit" name="sub" value="upload" />
+
+</form>
+</div>
+          </div>
+        </div>
     <script>
     window.WriteOrderInDiv();
     window.insert_customer();
     </script>
 
-	
-				<div class="home-4">
-					<div>
+ <!--  
+        <div class="home-4">
+                <div>
              <?php if(!empty($response)):
              echo $response;
              ?>
            <?php endif ?>
              </div> 
-					</div>
+          </div> -->
             
-				</div>
-			</div>
-		</div>
+        </div>
+      </div>
+    </div>
 </div>
 
   

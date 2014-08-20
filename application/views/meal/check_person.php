@@ -706,13 +706,7 @@ table.hovertable td {
         </div>
       </div>
       <div class="content">
-        <div class="home-1">
-          <h1> <br /><span>施工期间 <span class="agencySpan">!</span></span></h1>
-          <p>
-            正在施工，敬请期待！
-          </p>
-          <a href="#" class="checkPortfolio">Check our Portfolio</a>
-        </div>
+       
         <div class="home-2">
           <div class="home-2-center clearfix">
               <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_person_ok/')?>">
