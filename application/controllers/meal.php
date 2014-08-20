@@ -92,7 +92,10 @@
  		$data_list = $this->input->post('data_list');
  		$this->load->model('/meal/meal_book');
  		$this->meal_book->insert_orderlist($data_list);
+  		//$this->form_validation->set_rules('customer_name','您的大名', 'required');
+
  		$customer_name = $this->input->post('customer_name');
+
  		$this->input->set_cookie("meal_book_confirm_name",$customer_name,36000);
  		print_r("下单成功");
  	}

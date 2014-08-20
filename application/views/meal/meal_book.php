@@ -556,6 +556,12 @@ function confirm()
 
   document.getElementById('data_list').value = updataOrderData_json();
   var money = parseInt(document.getElementById("total").innerHTML);
+  var m_name = document.getElementById("customer_name").value;
+  if(m_name == "")
+  {
+    alert("您的大名还没有填呢！" );
+    return;
+  }
   alert("你一共需要支付" + money + "人民币！" );
   //console.log(document.getElementById('data_list').value);
   save_Customername();
@@ -776,7 +782,7 @@ table.hovertable td {
 							      <p class = "STYLE22" type="text" id"submitinput" name="submit_article">
 							      您的大名：
 							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
-							      <input type="hidden" name="data_list" id="data_list" value="xxx"></input>
+							      <input type="hidden" name="data_list" id="data_list" value=""></input>
 							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
 							      </p>
 							  </form>

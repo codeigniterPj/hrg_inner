@@ -58,7 +58,7 @@
 
  		function insert_orderlist($meallist)
  		{
- 			//print_r($meallist);
+ 			print_r($meallist);
  			if(empty($meallist))
  				return;
 	  		$meallist = json_decode($meallist,true);
