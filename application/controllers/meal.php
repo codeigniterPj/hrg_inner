@@ -21,7 +21,8 @@
  	{
  		// $md = array('8888',$menuid);
  		// $this->mauth->get_auth($this->session->userdata('power'),$md);
- 		$arrProject = $this->common->generatePj(array('鲜粥道'),"project");
+ 		$restaurant_list = $this->meal_book->get_restaurant();
+ 		$arrProject = $this->common->generatePjByid_value($restaurant_list,"project");
  		$data['project'] = $arrProject;
  		$data['border'] = 1;
  		//$data['menuid'] = $menuid;
@@ -32,7 +33,8 @@
  	{
  		// $md = array('8888',$menuid);
  		// $this->mauth->get_auth($this->session->userdata('power'),$md); 	
- 		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
+ 		$restaurant_list = $this->meal_book->get_restaurant();
+ 		$arrProject = $this->common->generateSelPjByid_value($restaurant_list,"project",$this->input->post('project'));
  		$data['project'] = $arrProject;
  		$data['menudata'] = $this->meal_book->menulist();
  		$data['m_name'] = $this->input->cookie("meal_book_confirm_name");
@@ -50,7 +52,8 @@
 
 	function meal_check_restaurant()
  	{
- 		$arrProject = $this->common->generatePj(array('鲜粥道'),"project");
+ 		$restaurant_list = $this->meal_book->get_restaurant();
+ 		$arrProject = $this->common->generatePjByid_value($restaurant_list,"project");
  		$data['project'] = $arrProject;
  		$data['border'] = 1;
  		$this->load->view('/meal/check_restaurant',$data);
@@ -71,7 +74,8 @@
  	function meal_check_restaurant_ok()
  	{
  		$project = $this->input->post('project');
- 		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
+ 		$restaurant_list = $this->meal_book->get_restaurant();
+ 		$arrProject = $this->common->generateSelPjByid_value($restaurant_list,"project",$project);
  		$data['project'] = $arrProject;
  		$response = $this->meal_book->meal_check_restaurant_ok($project);
  		$data['response'] = $response;

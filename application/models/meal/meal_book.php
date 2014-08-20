@@ -147,6 +147,17 @@
             return $response;
  		}
 
+ 		function get_restaurant()
+ 		{
+ 			$array = array();
+ 			$sql = "SELECT * FROM restaurant";
+ 			$query = $this->db->query($sql);
+ 			foreach ($query->result() as $row) {
+ 				array_push($array, array($row->restaurant_id,$row->restaurant_name));
+ 			}
+ 			return $array;
+ 		}
+
 	}
 
 ?>
