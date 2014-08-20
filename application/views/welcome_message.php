@@ -255,7 +255,7 @@
 		</div><!-- SERVICES SECTION END -->
 	</div>
 
-	<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+	
 	<div id="portfolio">
 		<div class="container">
 			<div class="content">
@@ -334,33 +334,14 @@
 							<a href="javascript:showfolio('8');"><h2>Simpler Landing</h2></a>
 							<p>Although starting a prototype is the inviation to the is sometimes</p>
 						</div>
+						<div>
+						   <p><a href="<?php echo site_url('/files/upload')?>" class="readMore">Read more</a></p>
+						</div>
 					</div>
 				</div>
 				
 				<div class="portfolio-3">
-					<div class="slideshow  slideshow2 clearfix">
-						<div class="slideshowImage">
-							<img src="images/slide2Image1.jpg" alt="slide image" />
-							<div class="slideNav slideNav2 clearfix">
-								<a href="#" class="prev"></a>
-								<a href="#" class="next"></a>
-								<a href="#" class="exit"></a>
-							</div>
-						</div>
-						<div class="slideshowText">
-							<h2>Simpler Landing Page</h2>
-							<p class="jobDesc">Web Design&amp; Development</p>
-							<p class="client"><span>Client:</span> Theme Forest</p>
-							<p>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatemtam 
-								rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-								explicabo. Donec ut volutpat metus. Aliquam tortor lorem,  
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-								rem aperiam, eaque ipsa quae ab illo inventore veritatis.
-							</p>
-							<a href="#" class="readMore">Visit Website</a>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div><!-- PORTFOLIO SECTION END -->
@@ -407,56 +388,38 @@
 						</div>
 					</div>
 					<div class="aboutUs-right">
-						<h2>Our <span>Team</span></h2>
+						<h2>Our <span>Choice</span></h2>
 						<div class="teamMember">
 							<div class="teamMember1">
-								<img src="images/teamMember.jpg" alt="team member" />
-								<h3>Gretchen J. Mcdonald</h3>
-								<p class="memberRole">Financial Advisor <span>+123 456 789</span></p>
-								<p>
-									Lonsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et 
-									dolore magn Praesent dapibus,
-								</p>
+								
+								<h3>鲜粥道</h3>
+								<p class="memberRole">国顺路126号（近政本路） <span>150-2123-5595</span></p>
+						
 							</div>
 							<div class="teamMember2">
-								<span>Follow Me</span>
-								<a href="#"><img src="images/follow1.gif" alt="follow me" /></a>
-								<a href="#"><img src="images/follow2.gif" alt="follow me" /></a>
-								<a href="#"><img src="images/follow3.gif" alt="follow me" /></a>
+								
 							</div>
 						</div>
 						<div class="teamMember">
 							<div class="teamMember1">
-								<img src="images/teamMember.jpg" alt="team member" />
-								<h3>Gretchen J. Mcdonald</h3>
+								
+								<h3>黄焖鸡</h3>
 								<p class="memberRole">Financial Advisor <span>+123 456 789</span></p>
-								<p>
-									Lonsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et 
-									dolore magn Praesent dapibus,
-								</p>
+							
 							</div>
 							<div class="teamMember2">
-								<span>Follow Me</span>
-								<a href="#"><img src="images/follow1.gif" alt="follow me" /></a>
-								<a href="#"><img src="images/follow2.gif" alt="follow me" /></a>
-								<a href="#"><img src="images/follow3.gif" alt="follow me" /></a>
+								
 							</div>
 						</div>
-						<div class="teamMember">
+					<div class="teamMember">
 							<div class="teamMember1">
-								<img src="images/teamMember.jpg" alt="team member" />
-								<h3>Gretchen J. Mcdonald</h3>
+								
+								<h3>木桶饭</h3>
 								<p class="memberRole">Financial Advisor <span>+123 456 789</span></p>
-								<p>
-									Lonsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et 
-									dolore magn Praesent dapibus,
-								</p>
+							
 							</div>
 							<div class="teamMember2">
-								<span>Follow Me</span>
-								<a href="#"><img src="images/follow1.gif" alt="follow me" /></a>
-								<a href="#"><img src="images/follow2.gif" alt="follow me" /></a>
-								<a href="#"><img src="images/follow3.gif" alt="follow me" /></a>
+								
 							</div>
 						</div>
 					</div>

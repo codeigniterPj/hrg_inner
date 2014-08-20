@@ -80,6 +80,26 @@ $(".portfolio-1").slideUp();}
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.min.js"?> type="text/javascript"></script>
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"?> type="text/javascript"></script>
 
+        <script type="text/javascript">
+$(document).ready(function(){
+  $category = $('.navMenu_son :hidden');
+   $a = $("div:not(.navMenu_son)");
+  if($category.is(':visible'))
+  {  
+   $a.on("mouseover",function(){
+    $category.slideUp("slow");
+  })
+}
+else{
+  console.log("else");
+  
+    $(".parentarea").on("mouseover",function(){
+    $category.slideDown("slow");
+    })
+    }
+});  
+</script>
+
 <script type="text/javascript">
 
 function init_customer(){
@@ -545,25 +565,7 @@ function confirm()
   });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-  $category = $('.navMenu_son :hidden');
-   $a = $("div:not(.navMenu_son)");
-  if($category.is(':visible'))
-  {  
-   $a.on("mouseover",function(){
-    $category.slideUp("slow");
-  })
-}
-else{
-  console.log("else");
-  
-    $(".parentarea").on("mouseover",function(){
-    $category.slideDown("slow");
-    })
-    }
-});  
-</script>
+
 
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -651,6 +653,7 @@ table.hovertable td {
 .navMenu_son{
   width: 60px;
   float: left;
+    cursor: pointer;
 }
 .navMenu_son a{
   width:80px;
@@ -687,21 +690,7 @@ table.hovertable td {
                   </div></li>
               <li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>  
             </ul>
-      <!--      <div class="info clearfix">
-              <div  width="300px" id="shopping_car">
-                <div id="Cart" style="line-height: 24px; font-size: 12px; background-color: #f0f0f0;
-                          border-top: 1px #ffffff solid；display:none; ">
-                </div>
-                <div id="Info">
-                          总计：<strong><span id="total" style="color: #FF0000; font-size: 36px ; height: 10px;
-                width: 10px;">0</span></strong>元
-                 <input type="button" value="清空" onclick="clearOrder();WriteOrderInDiv();" />
-                 <input type="button" value="展开/收缩" onclick="show('Cart')" />
-                </div>
-                
-              </div>
-
-            </div> -->
+     
           </div>
           <div class="menuBottom"></div>
         </div>
@@ -715,16 +704,33 @@ table.hovertable td {
           <a href="#" class="checkPortfolio">Check our Portfolio</a>
         </div>
         <div class="home-2">
-          <div class="home-2-center clearfix">
-              <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_restaurant_ok/')?>">
-               <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
-                <?php echo $project?>
-
-                <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
-                <input type="hidden" name="inplatform" id="inplatform" value="">
-                <input type="hidden" name="project" id="project" value="">
-                </p><br/>
-               </form>
+            <div class="home-2-center clearfix">
+            <div class="skills">
+              <div><img src="images/skill-image1.png" alt="minimal design" /></div>
+              <p>Minimal Design</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image2.png" alt="minimal design" /></div>
+              <p>Easy Installation</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image3.png" alt="minimal design" /></div>
+              <p>Browser Support</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image4.png" alt="minimal design" /></div>
+              <p>SEO Friendly</p>
+            </div>
+            <div class="skills">
+              <div><img src="images/skill-image5.png" alt="minimal design" /></div>
+              <p>Unlimited Versions</p>
+            </div>
+            <div class="weCreate">
+              <h2>
+                We create Clean, Modern and Eye Catching websites which helps your
+                business to grow better...
+              </h2>
+            </div>
           </div>
         </div>
     <script>
@@ -732,7 +738,7 @@ table.hovertable td {
     window.insert_customer();
     </script>
 
-  
+ <!--  
         <div class="home-4">
                 <div>
              <?php if(!empty($response)):
@@ -740,7 +746,7 @@ table.hovertable td {
              ?>
            <?php endif ?>
              </div> 
-          </div>
+          </div> -->
             
         </div>
       </div>

@@ -12,6 +12,27 @@
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.nav.js"?>></script>
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.quicksand.js"?>></script> 
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/easing.js"?>></script> 
+
+  <script type="text/javascript">
+$(document).ready(function(){
+  $category = $('.navMenu_son :hidden');
+   $a = $("div:not(.navMenu_son)");
+  if($category.is(':visible'))
+  {  
+   $a.on("mouseover",function(){
+    $category.slideUp("slow");
+  })
+}
+else{
+  console.log("else");
+  
+    $(".parentarea").on("mouseover",function(){
+    $category.slideDown("slow");
+    })
+    }
+});  
+</script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".navMenu").onePageNav();
@@ -545,26 +566,6 @@ function confirm()
   });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-  $category = $('.navMenu_son :hidden');
-   $a = $("div:not(.navMenu_son)");
-  if($category.is(':visible'))
-  {  
-   $a.on("mouseover",function(){
-    $category.slideUp("slow");
-  })
-}
-else{
-  console.log("else");
-  
-    $(".parentarea").on("mouseover",function(){
-    $category.slideDown("slow");
-    })
-    }
-});  
-</script>
-
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -651,6 +652,7 @@ table.hovertable td {
 .navMenu_son{
   width: 60px;
   float: left;
+  cursor: pointer;
 }
 .navMenu_son a{
   width:80px;
