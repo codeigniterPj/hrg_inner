@@ -91,6 +91,13 @@
 
  	function meal_book_confirm()
  	{
+ 		$starttime = strtotime(date("Y-m-d" , time()) . "11:00:00");
+ 		$endtime = strtotime(date("Y-m-d" , time()) . "11:40:00");
+ 		//$nowtime = strtotime(date("Y-m-d" , time()) . "11:30:00");
+		$nowtime = strtotime(date("Y-m-d H:i:s", time()));
+		$customer_name = $this->input->post('customer_name');
+		if($nowtime > $starttime && $nowtime < $endtime)
+		{
  		$data_list = $this->input->post('data_list');
  		$this->meal_book->insert_orderlist($data_list);
   		//$this->form_validation->set_rules('customer_name','您的大名', 'required');
@@ -99,6 +106,12 @@
  		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
  		$data['project'] = $arrProject;
  		$this->load->view('/meal/meal_book',$data);
+ 		}
+ 		else
+ 		{
+ 			$data['customer_name'] = $customer_name;
+ 			$this->load->view('/meal/meal_error',$data);
+ 		}
  	}
 
   	function meal_statistics()
