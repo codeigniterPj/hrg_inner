@@ -122,15 +122,21 @@ else{
 </script>
 
 <script type="text/javascript">
+  
+</script>
+<script type="text/javascript">
   function JudgeLogic(){
-
-$("input[id^='Num']").val();
-      if (parseInt(($("input[id^='Num']").val()))<=0) {
+    var i = $("input[id^='Num']").length - 1;
+    alert(i);
+    for (var i = $("input[id^='Num']").length - 1; i >= 0; i--) {
+      if (parseInt(($("input[id^='Num']")[i].val()))<=0) {
       alert('又淘气啦，请重新输入数量!') ;
-      $("input[id^='Num']").attr("value","1");
-
+      $("input[id^='Num']").val("1");
     };
+    };
+      
   }
+
 </script>
 
 <script type="text/javascript" charset="utf-8">
@@ -590,12 +596,20 @@ function insert_customer(){
 
 function confirm()
 {
-
-  document.getElementById('data_list').value = updataOrderData_json();
+  var c_name = document.getElementById("customer_name").value;
+  if(c_name=='')
+  {
+    alert("请输入姓名！");
+    return false;
+  }
+  else {
+    document.getElementById('data_list').value = updataOrderData_json();
   var money = parseInt(document.getElementById("total").innerHTML);
-  alert("你一共需要支付" + money + "人民币！" );
+  alert("你一共需要支付" + money + "人民币！" + "\n" + "\n" + "恭喜您，下单成功！" );
   //console.log(document.getElementById('data_list').value);
   save_Customername();
+  }
+  
 }
 
 </script>
@@ -709,6 +723,7 @@ table.hovertable td {
   max-height: 
 }
 
+
 </style>
 </head>
 <body>
@@ -719,7 +734,7 @@ table.hovertable td {
 				<div class="headerTop">
 					<div class="headerTop-1 clearfix">
 						<div class="headerLeft clearfix">
-							<h1><a href="#">&nbsp;</a></h1>
+							<h1><a href="<?php echo site_url('/meal/meal_book') ?>">&nbsp;</a></h1>
 							<p>大火溶内部网站</p>
 						</div>
 						
@@ -759,7 +774,7 @@ table.hovertable td {
 			</div>
 			<div class="content">
 				<div class="home-1">
-     
+       
         <div class="aboutUs-1 clearfix">
           <div class="aboutUs-left"><br/><br/><br/><br/>
             <p class="aboutPara1">
@@ -810,7 +825,23 @@ table.hovertable td {
         </div>
 				<div class="home-3">
 					<div class="home-3-center">
-						<div>
+						<div><br/><br/><br/><br/>
+                  <form method="post"  name = "form" action="<?php echo site_url('meal/meal_book_confirm/')?>">
+                    <h1 id = "booklist"></h1>
+                    <table>
+                    <tr>
+                    <td class = "STYLE22">总价</td> <td class = "STYLE22"><p id = "money" style="color:#FF0000">0</p> <td class = "STYLE22">元
+                    </tr>
+                    </table>
+                    <p class = "STYLE22" type="text" id"input" name="article">
+                    您的大名：
+                    <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
+                    <input type="hidden" name="data_list" id="data_list" value=""></input>
+                    <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
+                    <a href="javascript:void(1)" onclick="Order_cancel();" class="button2">取消订单</a>
+                    </p>
+                </form>
+                 <br/><br/><br/>
 							<form method="post"  name = "form1" id="form1" action="<?php echo site_url('meal/meal_book_ok/')?>">
 							 <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
 							  <?php echo $project?>
@@ -823,25 +854,9 @@ table.hovertable td {
 
 
 
-							  <?php if(!empty($menudata)): ?>
 							  
-							  <form method="post"  name = "form" action="<?php echo site_url('meal/meal_book_confirm/')?>">
-							      <h1 id = "booklist"></h1>
-							      <table>
-							      <tr>
-							      <td class = "STYLE22">总价</td> <td class = "STYLE22"><p id = "money" style="color:#FF0000">0</p> <td class = "STYLE22">元
-							      </tr>
-							      </table>
-							      <p class = "STYLE22" type="text" id"submitinput" name="submit_article">
-							      您的大名：
-							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
-							      <input type="hidden" name="data_list" id="data_list" value=""></input>
-							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
-                    <a href="javascript:void(1)" onclick="Order_cancel();" class="button1">取消订单</a>
-							      </p>
-							  </form>
-							   
-							  <?php endif;?>
+					
+
 							   <p>
 								请您点完餐后，填写上您的大名，确认购物车的订单后，提交订餐！
 							</p>

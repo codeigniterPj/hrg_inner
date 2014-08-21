@@ -340,7 +340,8 @@ a.checkPortfolio:hover{
 .home-2-center, .home-3-center, .home-4{
 	width: 980px;
 	margin: 0 auto;
-	margin-top: 60px;
+	margin-top: 0px;
+
 }
 
 .skills{
@@ -582,7 +583,16 @@ a.readMore:hover{
 	width: 308px;
 	margin-top: 50px;
 }
+.aboutUs-right-mealbook h2{
+	font-size: 24px;
+	color: #606a6d;
+	font-family: 'Microsoft yahei', sans-serif;
+	margin-bottom: 12px;
+}
 
+.aboutUs-right-mealbook h2 span{
+	color: #5ca039;
+}
 .aboutUs-right{
 	float: right;
 	width: 308px;

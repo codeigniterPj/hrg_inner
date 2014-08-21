@@ -93,8 +93,7 @@
  	}
 
  	function meal_book_confirm()
- 	{
-
+ 	{	
  		$starttime = strtotime(date("Y-m-d" , time()) . "11:00:00");
  		$endtime = strtotime(date("Y-m-d" , time()) . "11:40:00");
  		//$nowtime = strtotime(date("Y-m-d" , time()) . "11:30:00");
