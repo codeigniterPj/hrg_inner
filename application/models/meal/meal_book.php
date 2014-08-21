@@ -129,7 +129,6 @@
 
  		function meal_check_restaurant_ok($restaurant_id)
  		{
- 			$restaurantid = $this->input->post('project');
  			$sql = "SELECT menu_name AS 菜名, SUM(number) AS 数量 FROM order_list WHERE r_id = '$restaurant_id' GROUP BY menu_name";
  			$query = $this->db->query($sql);
             $this->table->set_template($this->tmpl);
@@ -137,6 +136,28 @@
             return $response;
  		}
 
+ 		function meal_check_per_restaurant_ok($restaurant_id)
+ 		{
+ 			$sql = "SELECT
+				rt.restaurant_name AS 餐馆名,
+				olp.`name` AS 名字,
+				ol.menu_name AS 菜名,
+				ol.number AS 数量,
+				olp.order_date AS 最终下单时间
+			FROM
+				order_list_person AS olp,
+				restaurant AS rt,
+				order_list AS ol
+			WHERE
+                ol.r_id = rt.restaurant_id
+			AND olp.name_id = ol.name_id
+			AND ol.r_id = '$restaurant_id'";
+ 			$query = $this->db->query($sql);
+            $this->table->set_template($this->tmpl);
+            $response = $this->table->generate($query);
+            //print_r($response);
+            return $response;
+ 		}
 
  		function meal_check_person_ok($person_name)
  		{

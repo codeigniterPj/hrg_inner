@@ -78,8 +78,10 @@
  		$restaurant_list = $this->meal_book->get_restaurant();
  		$arrProject = $this->common->generateSelPjByid_value($restaurant_list,"project",$project);
  		$data['project'] = $arrProject;
- 		$response = $this->meal_book->meal_check_restaurant_ok($project);
- 		$data['response'] = $response;
+ 		$response_restaurant = $this->meal_book->meal_check_restaurant_ok($project);
+ 		$response_person = $this->meal_book->meal_check_per_restaurant_ok($project);
+ 		$data['response_restaurant'] = $response_restaurant;
+ 		$data['response_person'] = $response_person;
  		$this->load->view('/meal/check_restaurant',$data);
  		//$this->load->view('/meal/meal_check',$data);
  	}
@@ -103,7 +105,6 @@
 		$restaurant_list = $this->meal_book->get_restaurant();
  		$arrProject = $this->common->generateSelPjByid_value($restaurant_list,"project",$project);
  		$data['project'] = $arrProject;
-
 /*		if($nowtime > $starttime && $nowtime < $endtime)
 		{*/
  		$data_list = $this->input->post('data_list');
