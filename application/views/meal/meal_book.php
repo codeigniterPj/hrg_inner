@@ -217,7 +217,7 @@ function WriteOrderInDiv()
    else
    {
     gwc+="<td id='dd' >";
-    gwc+="<input title='填写想购买的数量,请使用合法数字字符' style='width:20px;' id='Num"+i+"' type='text' onkeyup='JudgeLogic();EveryCount();'value='"+OneOrder[a]+"'>";
+    gwc+="<input  readonly='true' title='填写想购买的数量,请使用合法数字字符' style='width:20px;' id='Num"+i+"' type='text' onkeyup='EveryCount();'value='"+OneOrder[a]+"'>";
     gwc+="</td>";
    }
    

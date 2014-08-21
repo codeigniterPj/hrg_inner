@@ -662,6 +662,19 @@ table.hovertable td {
 
 }
 
+.home-4-1{
+  float: left;
+width:450px;
+margin-left: 400px;
+}
+.home-4-2{
+  float: right;
+width:1000px;
+
+}
+.home-2-1{
+  height: 60px;
+}
 </style>
 </head>
 <body>
@@ -710,7 +723,7 @@ table.hovertable td {
 			</div>
 			<div class="content">
 				
-				<div class="home-2">
+				<div class="home-2-1">
 					<div class="home-2-center clearfix">
 						  <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_restaurant_ok/')?>">
                <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
@@ -728,15 +741,23 @@ table.hovertable td {
     </script>
 
 	
-				<div class="home-4">
+				<div class="home-4-1">
 					<div>
-             <?php if(!empty($response)):
-             echo $response;
+             <?php if(!empty($response_restaurant)):
+             echo $response_restaurant;
              ?>
            <?php endif ?>
              </div> 
 					</div>
-            
+            <div class="home-4-2">
+          <div>
+             <?php if(!empty($response_person)):
+             echo $response_person;
+             ?>
+           <?php endif ?>
+             </div> 
+          </div>
+         
 				</div>
 			</div>
 		</div>
@@ -744,12 +765,6 @@ table.hovertable td {
 
   
 
-
-  <div id="footer">
-    <div >
-      <p>Copyright &copy; 2012-2014 &nbsp;.&nbsp;HRG All rights reserved.</p>
-    </div>
-  </div>
 
 
 
