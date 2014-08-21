@@ -663,11 +663,14 @@ table.hovertable td {
   display: none;
 
 }
-
+.aboutUs-1{
+  max-height: 
+}
 
 </style>
 </head>
 <body>
+
 	<div id="home">
 		<div class="container">
 			<div class="header">
@@ -692,7 +695,7 @@ table.hovertable td {
                   </div></li>
 							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>
 							
-						</ul>
+						</ul></div>
 						<div class="info clearfix">
 							<div  width="300px" id="shopping_car">
 							  <div id="Cart" style="line-height: 24px; font-size: 12px; background-color: #f0f0f0;
@@ -713,7 +716,56 @@ table.hovertable td {
 				</div>
 			</div>
 			<div class="content">
-				
+				<div class="home-1">
+     
+        <div class="aboutUs-1 clearfix">
+          <div class="aboutUs-left"><br/><br/><br/><br/>
+            <p class="aboutPara1">
+              <span>为了方便大家订餐，我们开发了这个功能</span><br /><br />
+
+              目前已经录入鲜粥道和木桶饭的菜单，并加入了饭馆订单查询和个人订单查询，方便大家查看。订单排行榜由于现在数据量较少，暂时不做，留待以后完善。
+            </p>
+            <h2>
+              <span>订餐时间：</span>每天的11:00--11:40。
+            </h2>
+            <div class="aboutUs-readMore clearfix">
+              <img src="images/aboutUsImage.jpg" alt="image" />
+              <div>
+                <p>
+                  请大家务必输入自己的真名，并且不要重复订餐，谢谢合作！
+                </p><br/><br/>
+                <a href="<?php echo site_url('/meal/meal_book/')?>" class="readMore">立即订饭</a>
+              </div>
+            </div>
+          </div>
+          <div class="aboutUs-right-mealbook">
+            <h2>Our <span>Choice</span></h2>
+            <div class="teamMember">
+              <div class="teamMember1">
+                
+                <h3>鲜粥道</h3>
+                <p class="memberRole">国顺路126号（近政本路） <span>150-2123-5595</span></p>
+            
+              </div>
+              <div class="teamMember2">
+                
+              </div>
+            </div>
+          <div class="teamMember">
+              <div class="teamMember1">
+                
+                <h3>木桶饭</h3>
+                <p class="memberRole">政本路173号-12 <span>130-0416-6398</span></p>
+              
+              </div>
+              <div class="teamMember2">
+                
+              </div>
+            </div>
+          </div>
+      
+    </div><!-- ABOUT US SECTION END -->
+        </div>
 				<div class="home-3">
 					<div class="home-3-center">
 						<div>
@@ -726,10 +778,8 @@ table.hovertable td {
 							  <input type="hidden" name="inproject" id="inproject" value="">
 							  </p><br/>
                </form>
-  <script>
-    window.WriteOrderInDiv();
-    window.insert_customer();
-    </script>
+
+
 
 							  <?php if(!empty($menudata)): ?>
 							  
@@ -790,7 +840,11 @@ table.hovertable td {
 			</div>
 		</div><!-- HOME SECTION END -->
 	</div>
-
+  </div>
+    <script>
+    window.WriteOrderInDiv();
+    window.insert_customer();
+    </script>
   <div id="footer">
     <div align="center">
       <p>Copyright &copy; 2012-2014 &nbsp;.&nbsp;HRG All rights reserved.</p>

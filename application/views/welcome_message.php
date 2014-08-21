@@ -355,28 +355,19 @@
 				<div class="aboutUs-1 clearfix">
 					<div class="aboutUs-left">
 						<p class="aboutPara1">
-							<span>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae 
-							vitae dicta sunt explicabo nemo enim ipsam voluptatem.</span><br /><br />
+							<span>为了方便大家订餐，我们开发了这个功能</span><br /><br />
 
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam 
-							rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt 
-							explicabo. Donec ut volutpat metus. Aliquam tortor lorem, fringilla tempor dignissim at, pretium et arcu. 
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam 
-							rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+							目前已经录入鲜粥道和木桶饭的菜单，并加入了饭馆订单查询和个人订单查询，方便大家查看。订单排行榜由于现在数据量较少，暂时不做，留待以后完善。
 						</p>
 						<h2>
-							"<span>Awesome</span> is available for the ridiculously low, one-time cost of <span>$35!</span> 
-							That's right, I'm practically giving it away!”
+							<span>订餐时间：</span>每天的11:00--11:40。
 						</h2>
 						<div class="aboutUs-readMore clearfix">
 							<img src="images/aboutUsImage.jpg" alt="image" />
 							<div>
 								<p>
-									Sed ut perspiciatis unde omnis iste natus error sit 
-									rem aperiam, eaque ipsa quae ab illo inventore 
-									explicabo. Donec ut volutpat metus. Aliquam tortor
-									Sed ut perspiciatis unde omnis..
-								</p>
+									请大家务必输入自己的真名，并且不要重复订餐，谢谢合作！
+								</p><br/><br/>
 								<a href="<?php echo site_url('/meal/meal_book/')?>" class="readMore">立即订饭</a>
 							</div>
 						</div>
@@ -409,7 +400,7 @@
 							<div class="teamMember1">
 								
 								<h3>木桶饭</h3>
-								<p class="memberRole">Financial Advisor <span>+123 456 789</span></p>
+								<p class="memberRole">国顺路126号（近政本路） <span>150-2123-5595</span></p>
 							
 							</div>
 							<div class="teamMember2">

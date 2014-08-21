@@ -490,9 +490,11 @@ a.purchaseTheme:hover{
 /* -------- Content About Us ------- */
 
 .aboutUs-1{
+
 	width: 980px;
 	margin: 0 auto;
 	padding-bottom: 113px;
+	max-height: 180px;
 }
 
 .aboutUs-left{
@@ -575,9 +577,16 @@ a.readMore:hover{
 	text-decoration: none;
 }
 
+.aboutUs-right-mealbook{
+	float: right;
+	width: 308px;
+	margin-top: 50px;
+}
+
 .aboutUs-right{
 	float: right;
 	width: 308px;
+
 }
 
 .aboutUs-right h2{
