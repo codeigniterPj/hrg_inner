@@ -701,7 +701,7 @@ table.hovertable td {
           <p>
             正在施工，敬请期待！
           </p>
-          <a href="#" class="checkPortfolio">Check our Portfolio</a>
+         
         </div>
         <div class="home-2">
             <div class="home-2-center clearfix">

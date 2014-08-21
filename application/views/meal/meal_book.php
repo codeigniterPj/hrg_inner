@@ -12,6 +12,31 @@
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.nav.js"?>></script>
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.quicksand.js"?>></script> 
 	<script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/easing.js"?>></script> 
+
+  <script type="text/javascript">
+  function Order_cancel(){
+    var customer_name = document.getElementById("customer_name").value;
+    if(customer_name==''){
+     alert("请输入姓名！");
+     return;
+  }
+  else {
+     var data_name = "customer_name=" + customer_name;
+    console.log(data_name);
+    $.ajax({
+      type:"POST",
+      url: "/hrg_inner/index.php/meal/meal_book_cancel",
+      cache: false,
+      data: data_name,
+      success:function(msg){
+        alert(msg + "的订单已经删除成功！" + "\n" +"您可以重新下单了！");
+      }
+    });
+   
+  }
+  }
+</script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".navMenu").onePageNav();
@@ -96,6 +121,18 @@ else{
 
 </script>
 
+<script type="text/javascript">
+  function JudgeLogic(){
+
+$("input[id^='Num']").val();
+      if (parseInt(($("input[id^='Num']").val()))<=0) {
+      alert('又淘气啦，请重新输入数量!') ;
+      $("input[id^='Num']").attr("value","1");
+
+    };
+  }
+</script>
+
 <script type="text/javascript" charset="utf-8">
 function init_customer(){
 	var date = new Date();
@@ -126,7 +163,7 @@ document.cookie="InameArr='';expires=" + date.toGMTString();
  }
 //计算单个小计
  function EveryCount()
- {
+ {  
     var index=window.event.srcElement.parentElement.parentElement.rowIndex;
     var test = document.getElementById("test");
     var a=document.getElementById("test").rows[index].cells[2].innerText;
@@ -174,7 +211,7 @@ function WriteOrderInDiv()
    else
    {
     gwc+="<td id='dd' >";
-    gwc+="<input title='填写想购买的数量,请使用合法数字字符' style='width:20px;' id='Num"+i+"' type='text' onkeyup='EveryCount();'value='"+OneOrder[a]+"'>";
+    gwc+="<input title='填写想购买的数量,请使用合法数字字符' style='width:20px;' id='Num"+i+"' type='text' onkeyup='JudgeLogic();EveryCount();'value='"+OneOrder[a]+"'>";
     gwc+="</td>";
    }
    
@@ -569,8 +606,9 @@ function confirm()
 </script>
 
 <script type="text/javascript">
-    var customer_name = $(document).getElementById("customer_name").value;
+  $("#test:input").change
 </script>
+
 
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -767,13 +805,13 @@ table.hovertable td {
               </div>
             </div>
           </div>
-      
+</script>
     </div><!-- ABOUT US SECTION END -->
         </div>
 				<div class="home-3">
 					<div class="home-3-center">
 						<div>
-							<form method="post"  name = "form1" action="<?php echo site_url('meal/meal_book_ok/')?>">
+							<form method="post"  name = "form1" id="form1" action="<?php echo site_url('meal/meal_book_ok/')?>">
 							 <p class = "STYLE22">请筛选数据:&nbsp;&nbsp;&nbsp;
 							  <?php echo $project?>
 
@@ -799,7 +837,7 @@ table.hovertable td {
 							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
 							      <input type="hidden" name="data_list" id="data_list" value=""></input>
 							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
-                    <a href="<?php echo site_url('/meal/meal_book_cancel/')?>" class="button1">取消订单</a>
+                    <a href="javascript:void(1)" onclick="Order_cancel();" class="button1">取消订单</a>
 							      </p>
 							  </form>
 							   

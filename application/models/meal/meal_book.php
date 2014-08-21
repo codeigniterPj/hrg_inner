@@ -37,6 +37,8 @@
  			$menu_list = array();
  			$menu_all = array();
  			$restaurantid = $this->input->post('project');
+ 			if(empty($restaurantid))
+ 				return;
  			$sql = "SELECT * FROM restaurant_type WHERE restaurant_id = $restaurantid";
  			$query = $this->db->query($sql);
  			foreach ($query->result() as $row) {
@@ -169,6 +171,29 @@
  				array_push($array, array($row->restaurant_id,$row->restaurant_name));
  			}
  			return $array;
+ 		}
+
+ 		function delete_orders($customer_name){
+ 			if(empty($customer_name))
+ 				return;
+ 			$sql="SELECT name_id FROM order_list_person WHERE name = '$customer_name'";
+ 			$query = $this->db->query($sql);
+ 			if($query->result())
+ 			{
+ 				$a = $query->num_rows();
+ 				
+ 				
+ 				$name_id = $query->result()[0]->name_id;
+ 				$sql = "DELETE FROM order_list WHERE name_id = '$name_id' ";
+ 				$query = $this->db->query($sql);
+ 				$sql = "DELETE FROM order_list_person WHERE name_id = '$name_id' ";
+ 				$query = $this->db->query($sql);
+ 				
+ 				
+ 			}
+ 			else
+ 				return;
+
  		}
 
 	}

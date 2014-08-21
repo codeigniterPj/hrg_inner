@@ -119,6 +119,12 @@
  		}*/
  	}
 
+	function meal_book_cancel()
+	{
+		$c_name = $this->input->post("customer_name");
+		$this->meal_book->delete_orders($c_name);
+		print_r($c_name);
+	}
   	function meal_statistics()
  	{
  		$this->meal_book->meal_statistics();
