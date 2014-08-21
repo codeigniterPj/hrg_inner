@@ -568,6 +568,10 @@ function confirm()
   });
 </script>
 
+<script type="text/javascript">
+    var customer_name = $(document).getElementById("customer_name").value;
+</script>
+
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -686,7 +690,7 @@ table.hovertable td {
 				<div class="headerBottom">
 					<div class="headerBottom-1 clearfix">
 						<ul class="navMenu clearfix">
-							<li><a href="#home">Home</a></li>
+							<li><a href="<?php echo site_url('/meal/meal_book') ?>">Home</a></li>
 							<li><div class="navMenu_son"><span class="parentarea">查看订单</span>
                       
                       <a href="<?php echo site_url('/meal/meal_check_restaurant') ?>">查询餐馆订单</a>
@@ -734,7 +738,7 @@ table.hovertable td {
                 <p>
                   请大家务必输入自己的真名，并且不要重复订餐，谢谢合作！
                 </p><br/><br/>
-                <a href="<?php echo site_url('/meal/meal_book/')?>" class="readMore">立即订饭</a>
+               
               </div>
             </div>
           </div>
@@ -795,6 +799,7 @@ table.hovertable td {
 							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
 							      <input type="hidden" name="data_list" id="data_list" value=""></input>
 							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
+                    <a href="<?php echo site_url('/meal/meal_book_cancel/')?>" class="button1">取消订单</a>
 							      </p>
 							  </form>
 							   
@@ -813,7 +818,7 @@ table.hovertable td {
 						    foreach ($menudata as $row):
 						    foreach ($row as $menutype => $menucontent):?>
 							<div>
-						    <p><?php echo $menutype;?></p>
+						    <br/><br/><br/><br/><p><?php echo $menutype;?></p>
 						    <table width="70%" border="<?php echo $border ?>" class="hovertable" id='total'>
 
 						     <?php foreach($menucontent as $key => $value):
