@@ -23,6 +23,7 @@
  		// $this->mauth->get_auth($this->session->userdata('power'),$md);
  		$restaurant_list = $this->meal_book->get_restaurant();
  		$arrProject = $this->common->generatePjByid_value($restaurant_list,"project");
+ 		$data['m_name'] = $this->input->cookie("meal_book_confirm_name");
  		$data['project'] = $arrProject;
  		$data['border'] = 1;
  		//$data['menuid'] = $menuid;
@@ -91,27 +92,31 @@
 
  	function meal_book_confirm()
  	{
+
  		$starttime = strtotime(date("Y-m-d" , time()) . "11:00:00");
  		$endtime = strtotime(date("Y-m-d" , time()) . "11:40:00");
  		//$nowtime = strtotime(date("Y-m-d" , time()) . "11:30:00");
 		$nowtime = strtotime(date("Y-m-d H:i:s", time()));
 		$customer_name = $this->input->post('customer_name');
-		if($nowtime > $starttime && $nowtime < $endtime)
-		{
+		$this->input->set_cookie("meal_book_confirm_name",$customer_name,36000000000);
+		$project = $this->input->post('project');
+		$restaurant_list = $this->meal_book->get_restaurant();
+ 		$arrProject = $this->common->generateSelPjByid_value($restaurant_list,"project",$project);
+ 		$data['project'] = $arrProject;
+
+/*		if($nowtime > $starttime && $nowtime < $endtime)
+		{*/
  		$data_list = $this->input->post('data_list');
  		$this->meal_book->insert_orderlist($data_list);
   		//$this->form_validation->set_rules('customer_name','您的大名', 'required');
  		$customer_name = $this->input->post('customer_name');
- 		$this->input->set_cookie("meal_book_confirm_name",$customer_name,36000000000);
- 		$arrProject = $this->common->generateSelPjByid(array('鲜粥道'),"project",$this->input->post('project'));
- 		$data['project'] = $arrProject;
  		$this->load->view('/meal/meal_book',$data);
- 		}
- 		else
+ 		//}
+/* 		else
  		{
  			$data['customer_name'] = $customer_name;
  			$this->load->view('/meal/meal_error',$data);
- 		}
+ 		}*/
  	}
 
   	function meal_statistics()

@@ -792,8 +792,8 @@ table.hovertable td {
 							      </table>
 							      <p class = "STYLE22" type="text" id"submitinput" name="submit_article">
 							      您的大名：
-							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value=""> </input>
-							      <input type="hidden" name="data_list" id="data_list" value="xxx"></input>
+							      <input  class = "STYLE22" type="text" id="customer_name" name="customer_name" value="<?php if(!empty($m_name)) echo $m_name; ?>"> </input>
+							      <input type="hidden" name="data_list" id="data_list" value=""></input>
 							      <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="确认订餐" onclick="confirm()">
 							      </p>
 							  </form>

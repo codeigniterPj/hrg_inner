@@ -33,6 +33,7 @@
 
  		function menulist()
  		{
+
  			$menu_list = array();
  			$menu_all = array();
  			$restaurantid = $this->input->post('project');
@@ -75,7 +76,7 @@
 	 		if($query->result())
 	 		{
 	 	        $nameid = $query->result()[0]->name_id;
-	 	        $r_id = $query->result()[0]->r_id;
+	 	        //$r_id = $query->result()[0]->r_id;
 	 			$sql = "UPDATE order_list_person SET price_all = '$count',order_date = '$time' WHERE name = '$name'";
 	 			$query = $this->db->query($sql);
 	 			$sql = "DELETE FROM order_list WHERE name_id = '$nameid'";
@@ -86,6 +87,12 @@
 	 					$item_name = $row['item_name'];
 	 					$item_amount = $row['item_amount'];
 	 					$item_price = $row['item_price'];
+	 					$sql = "SELECT * FROM restaurant_menu WHERE id = '$item_no'";
+	 					$query = $this->db->query($sql);
+	 					$type_id = $query->result()[0]->type_id;
+	 					$sql = "SELECT * FROM restaurant_type WHERE type_id = '$type_id'";
+	 					$query = $this->db->query($sql);
+	 					$r_id = $query->result()[0]->restaurant_id;
 	 				 	$sql = "INSERT INTO order_list VALUES('$nameid','$item_name','$item_amount','$item_no','$r_id')";
 	 					$query = $this->db->query($sql);		
 	 				}
@@ -105,6 +112,12 @@
 	 					$item_name = $row['item_name'];
 	 					$item_amount = $row['item_amount'];
 	 					$item_price = $row['item_price'];
+	 					$sql = "SELECT * FROM restaurant_menu WHERE id = '$item_no'";
+	 					$query = $this->db->query($sql);
+	 					$type_id = $query->result()[0]->type_id;
+	 					$sql = "SELECT * FROM restaurant_type WHERE type_id = '$type_id'";
+	 					$query = $this->db->query($sql);
+	 					$r_id = $query->result()[0]->restaurant_id;
 	 				 	$sql = "INSERT INTO order_list VALUES('$nameid','$item_name','$item_amount','$item_no','$r_id')";
 	 					$query = $this->db->query($sql);		
 	 				}
@@ -131,8 +144,7 @@
 					olp.`name` AS 名字,
 					ol.menu_name AS 菜名,
 					ol.number AS 数量,
-					olp.order_date AS 最终下单时间,
-					olp.price_all AS 总价
+					olp.order_date AS 最终下单时间
 
 					FROM
 						order_list_person AS olp,
@@ -141,6 +153,7 @@
 					WHERE
 						NAME = '$person_name'
 					AND olp.r_id = rt.restaurant_id AND olp.name_id = ol.name_id AND olp.r_id = ol.r_id";
+			//print_r($sql);
  			$query = $this->db->query($sql);
             $this->table->set_template($this->tmpl);
             $response = $this->table->generate($query);
