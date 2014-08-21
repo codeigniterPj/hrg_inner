@@ -71,7 +71,7 @@
 	 			$count = $info['total'];
 	 		}			
 	 		$time = date('y-m-d H:i:s',time());
-	 		$sql = "SELECT * FROM order_list_person WHERE name = '$name' AND r_id = '$r_id'";
+	 		$sql = "SELECT * FROM order_list_person WHERE name = '$name'";
 	 		$query = $this->db->query($sql);
 	 		if($query->result())
 	 		{
@@ -139,20 +139,20 @@
  		function meal_check_person_ok($person_name)
  		{
  			$orderlist = array();
- 			$sql = "SELECT
- 					rt.restaurant_name AS 餐馆名,
-					olp.`name` AS 名字,
-					ol.menu_name AS 菜名,
-					ol.number AS 数量,
-					olp.order_date AS 最终下单时间
-
-					FROM
-						order_list_person AS olp,
-						restaurant AS rt,
-						order_list AS ol
-					WHERE
-						NAME = '$person_name'
-					AND olp.r_id = rt.restaurant_id AND olp.name_id = ol.name_id AND olp.r_id = ol.r_id";
+			$sql = "SELECT
+				rt.restaurant_name AS 餐馆名,
+				olp.`name` AS 名字,
+				ol.menu_name AS 菜名,
+				ol.number AS 数量,
+				olp.order_date AS 最终下单时间
+			FROM
+				order_list_person AS olp,
+				restaurant AS rt,
+				order_list AS ol
+			WHERE
+			olp.`name` = '张纯'
+			AND ol.r_id = rt.restaurant_id
+			AND olp.name_id = ol.name_id";
 			//print_r($sql);
  			$query = $this->db->query($sql);
             $this->table->set_template($this->tmpl);
