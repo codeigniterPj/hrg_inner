@@ -152,7 +152,7 @@
 				restaurant AS rt,
 				order_list AS ol
 			WHERE
-			olp.`name` = '张纯'
+			olp.`name` = '$person_name'
 			AND ol.r_id = rt.restaurant_id
 			AND olp.name_id = ol.name_id";
 			//print_r($sql);
