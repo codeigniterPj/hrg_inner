@@ -34,6 +34,8 @@
     });
    
   }
+   clearOrder();
+   WriteOrderInDiv();
   }
 </script>
 
@@ -125,17 +127,17 @@ else{
   
 </script>
 <script type="text/javascript">
-  function JudgeLogic(){
-    var i = $("input[id^='Num']").length - 1;
-    alert(i);
-    for (var i = $("input[id^='Num']").length - 1; i >= 0; i--) {
-      if (parseInt(($("input[id^='Num']")[i].val()))<=0) {
-      alert('又淘气啦，请重新输入数量!') ;
-      $("input[id^='Num']").val("1");
-    };
-    };
+  // function JudgeLogic(){
+  //   var i = $("input[id^='Num']").length - 1;
+  //   alert(i);
+  //   for (var i = $("input[id^='Num']").length - 1; i >= 0; i--) {
+  //     if (parseInt(($("input[id^='Num']")[i].val()))<=0) {
+  //     alert('又淘气啦，请重新输入数量!') ;
+  //     $("input[id^='Num']").val("1");
+  //   };
+  //   };
       
-  }
+  // }
 
 </script>
 
