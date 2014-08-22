@@ -30,7 +30,7 @@
  		}
  		else
  		{
- 			$this->load->view('/meal/meal_rank');
+ 			$this->load->view('/meal/meal_error');
  		}
  	}
 
@@ -48,7 +48,7 @@
 	 	}
 	 	else
 	 	{
-	 		$this->load->view('/meal/meal_rank');
+	 		$this->load->view('/meal/meal_error');
 	 	}
  	}
 

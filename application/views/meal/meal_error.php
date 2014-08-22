@@ -697,7 +697,7 @@ table.hovertable td {
       </div>
       <div class="content">
         <div class="home-1">
-          <h1> 尊敬的<span><?php echo $customer_name;?></span>先生<br /></h1>
+<h1> 尊敬的<span></span>先生或女士<br /></h1>
           <p>
           <span>不在订餐时间 <span class="agencySpan">!</span></span><br/>
             每日订餐时间为 11：00--11:40！
