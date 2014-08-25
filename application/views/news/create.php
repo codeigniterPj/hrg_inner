@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -734,7 +729,11 @@ table.hovertable td {
   <div id="home">
     <div class="container">
       <div class="header">
+
         <div class="headerTop">
+        <div id="welcome">
+<?php echo "尊敬的".$name."用户，欢迎使用！现在是北京时间："?> <span id="txt"></span>
+</div>
           <div class="headerTop-1 clearfix">
             <div class="headerLeft clearfix">
               <h1><a href="#">&nbsp;</a></h1>
@@ -746,7 +745,7 @@ table.hovertable td {
         <div class="headerBottom">
           <div class="headerBottom-1 clearfix">
             <ul class="navMenu clearfix">
-              <li><a href="<?php echo site_url('/admin_login/#/')?>">Home</a></li>
+              <li><a href="<?php echo site_url('/admin_login/logining/')?>">Home</a></li>
               <li><a href="<?php echo site_url('/admin_login/uploadFile/')?>">文件上传</a></li>
               <li><a href="<?php echo site_url('/admin_login/releaseNews/')?>">新闻发布</a></li>  
             </ul>
@@ -792,7 +791,30 @@ table.hovertable td {
               </h2>
             </div>
           </div>
+
 <div id="templatemo_wrapper">
+
+ 
+    
+ <form action="create_ok" method='post' accept-charset='utf-8'>
+<h2>Create a news item</h2>
+
+<?php echo validation_errors(); ?>
+
+<?php //echo form_open('news/create_ok') ?>
+
+  <label for="title">Title</label> 
+  <input type="input" name="title" /><br />
+
+  <label for="text">Text</label>
+  <textarea name="text"></textarea><br />
+  
+  <input type="submit" name="submit" value="Create news item" /> 
+
+</form>
+    
+
+
 <div>
 
 <?php foreach ($news as $news_item): ?>
@@ -806,6 +828,8 @@ table.hovertable td {
 <?php endforeach ?>
 
 </div>
+
+
 
 <div>
 <?php foreach ($file_name as $file_item): ?>

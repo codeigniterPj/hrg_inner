@@ -661,7 +661,12 @@ table.hovertable td {
   display: none;
 
 }
-
+.home-1-1{
+    width: 380px;
+  margin: 0 auto;
+  min-height: 100px;
+  padding-right: 600px;
+}
 </style>
 </head>
 <body>
@@ -715,13 +720,18 @@ table.hovertable td {
                 <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
                 </p><br/>
                </form>
+            
           </div>
         </div>
     <script>
     window.WriteOrderInDiv();
     window.insert_customer();
     </script>
-
+      <div class="home-1-1">
+      <?php if(!empty($count)): ?>
+          <h1> 总价：<br /><span><?php echo $count;?> 元 <span class="agencySpan">!</span></span></h1>             
+           <?php endif ?>        
+        </div>
         <div class="home-4">
           <div>
              <?php if(!empty($response)):

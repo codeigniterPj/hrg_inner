@@ -81,5 +81,15 @@
 					$this->load->view('login');
 				}
 		}
+
+		function uploadFile(){
+
+			$this->load->view('upload_form');
+		}
+		function releaseNews(){
+
+			$this->load->view('/news/release_news');
+		}
+
 	}
 ?>

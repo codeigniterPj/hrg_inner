@@ -127,17 +127,14 @@ else{
   
 </script>
 <script type="text/javascript">
-  // function JudgeLogic(){
-  //   var i = $("input[id^='Num']").length - 1;
-  //   alert(i);
-  //   for (var i = $("input[id^='Num']").length - 1; i >= 0; i--) {
-  //     if (parseInt(($("input[id^='Num']")[i].val()))<=0) {
-  //     alert('又淘气啦，请重新输入数量!') ;
-  //     $("input[id^='Num']").val("1");
-  //   };
-  //   };
-      
-  // }
+  function JudgeLogic(){
+    var i = $("input[id^='Num']").length - 1;
+    alert(i);  
+      if (($("input[id^='Num']").val())<=0) {
+      alert('又淘气啦，请重新输入数量!') ;
+      $("input[id^='Num']").val("1");
+    };
+    };
 
 </script>
 
@@ -219,7 +216,7 @@ function WriteOrderInDiv()
    else
    {
     gwc+="<td id='dd' >";
-    gwc+="<input  readonly='true' title='填写想购买的数量,请使用合法数字字符' style='width:20px;' id='Num"+i+"' type='text' onkeyup='EveryCount();'value='"+OneOrder[a]+"'>";
+    gwc+="<input   title='填写想购买的数量,请使用合法数字字符' style='width:20px;' id='Num"+i+"' type='text' onkeyup='EveryCount();'value='"+OneOrder[a]+"'>";
     gwc+="</td>";
    }
    
@@ -853,17 +850,9 @@ table.hovertable td {
 							  <input type="hidden" name="inproject" id="inproject" value="">
 							  </p><br/>
                </form>
-
-
-
-							  
-					
-
 							   <p>
 								请您点完餐后，填写上您的大名，确认购物车的订单后，提交订餐！
 							</p>
-
-							
 						</div>
 						
 					</div>

@@ -1,5 +1,5 @@
 <?php
-class Files_model extends CI_Model
+class files_model extends CI_Model
 {
 	public function __construct()
 	{
@@ -16,8 +16,6 @@ class Files_model extends CI_Model
 		$file=array(
 		'file_name' => $a
 		);
-		
-		//print_r($file['file_name']);
 		return $this->db->insert('files',$file);
 	}
 }

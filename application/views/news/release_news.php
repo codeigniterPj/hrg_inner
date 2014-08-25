@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -792,7 +787,30 @@ table.hovertable td {
               </h2>
             </div>
           </div>
+
 <div id="templatemo_wrapper">
+
+ 
+    
+ <form action="create_ok" method='post' accept-charset='utf-8'>
+<h2>Create a news item</h2>
+
+<?php echo validation_errors(); ?>
+
+<?php //echo form_open('news/create_ok') ?>
+
+  <label for="title">Title</label> 
+  <input type="input" name="title" /><br />
+
+  <label for="text">Text</label>
+  <textarea name="text"></textarea><br />
+  
+  <input type="submit" name="submit" value="Create news item" /> 
+
+</form>
+    
+
+
 <div>
 
 <?php foreach ($news as $news_item): ?>
@@ -807,26 +825,6 @@ table.hovertable td {
 
 </div>
 
-<div>
-<?php foreach ($file_name as $file_item): ?>
- <form method="post" id="file" name = "form1" action="<?php echo site_url('login/downFile')?>">
-  <div id='file_list' >
-  <ul>
-  <li><input type="hidden" id = "<?php echo $file_item['file_name'] ?>" name = "<?php echo $file_item['file_name'] ?>" value = "<?php echo $file_item['file_name'] ?>"/><span><?php echo $file_item['file_name'] ?></span>
-  <input type="submit" id="<?php echo $file_item['file_name']?>" value="下载" /></li></div>
-  </form>
-<?php endforeach ?>
-</div>
-
-<div class=upload>
-<?php echo form_open_multipart('./upload/uploading/');?>
-<form>
-<input type="file" name="userfile" value="" size="20" />
-
-<input type="submit" name="sub" value="upload" />
-
-</form>
-</div>
           </div>
         </div>
     <script>
