@@ -99,7 +99,6 @@
 	 					$query = $this->db->query($sql);		
 	 				}
 
-
 	 		}
 	 		else
 	 		{
@@ -166,14 +165,17 @@
 				rt.restaurant_name AS 餐馆名,
 				olp.`name` AS 名字,
 				ol.menu_name AS 菜名,
+				rm.meal_price AS 单价,
 				ol.number AS 数量,
 				olp.order_date AS 最终下单时间
 			FROM
 				order_list_person AS olp,
 				restaurant AS rt,
-				order_list AS ol
+				order_list AS ol,
+				restaurant_menu AS rm
 			WHERE
 			olp.`name` = '$person_name'
+      		AND rm.id = ol.item_id
 			AND ol.r_id = rt.restaurant_id
 			AND olp.name_id = ol.name_id";
 			//print_r($sql);
@@ -181,6 +183,30 @@
             $this->table->set_template($this->tmpl);
             $response = $this->table->generate($query);
             return $response;
+ 		}
+
+ 		function meal_person_count($person_name)
+ 		{
+ 			$orderlist = array();
+			$sql = "SELECT
+				sum(rm.meal_price) AS count
+			FROM
+				order_list_person AS olp,
+				restaurant AS rt,
+				order_list AS ol,
+				restaurant_menu AS rm
+			WHERE
+			olp.`name` = '$person_name'
+      		AND rm.id = ol.item_id
+			AND ol.r_id = rt.restaurant_id
+			AND olp.name_id = ol.name_id";
+			//print_r($sql);
+ 			$query = $this->db->query($sql);
+/*            $this->table->set_template($this->tmpl);
+            $response = $this->table->generate($query);*/
+            $count = $query->result()[0]->count;
+
+            return $count;
  		}
 
  		function get_restaurant()

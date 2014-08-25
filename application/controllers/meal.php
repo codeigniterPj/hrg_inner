@@ -76,6 +76,8 @@
  		$this->input->set_cookie("person_name",$customer_name,36000000000);
  		$data['c_name'] = $customer_name;
  		$data['response'] = $this->meal_book->meal_check_person_ok($customer_name);
+ 		$data['count'] = $this->meal_book->meal_person_count($customer_name);
+ 		print_r($data['count']);
  		$this->load->view('/meal/check_person',$data);
  		//$this->load->view('/meal/meal_check',$data);
  	}
