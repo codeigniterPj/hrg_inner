@@ -675,7 +675,7 @@ color:#fff;
 #shopping_car{
   
   top:10px;
-  right: 100px；
+  right: 150px；
 }
 td{
   font-style: black;
@@ -721,8 +721,25 @@ table.hovertable td {
 .aboutUs-1{
   max-height: 
 }
-
-
+#rank_first{
+  left: 100px;
+  top:10px;
+}
+.home-21{
+  width: 300px;
+ 
+}
+.home-21 p{
+  font-family: "楷体";
+  color: #D9D481;
+  font-size: 28px;
+}
+.home-21 span{
+  font-family: "叶根友毛笔行书2.0版";
+  font-size: 35px;
+  text-decoration: underline;
+  color: #C8585B;
+}
 </style>
 </head>
 <body>
@@ -749,7 +766,7 @@ table.hovertable td {
                       <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
                       
                   </div></li>
-							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">订单排行榜</a></li>
+							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪贡献榜</a></li>  
 							
 						</ul></div>
 						<div class="info clearfix">
@@ -765,7 +782,12 @@ table.hovertable td {
 							  </div>
 							  
 							</div>
-
+              <div  width="300px" id="rank_first">
+                <div class="home-21">
+                  <p>订餐信息从8月25号开始记录，土豪榜是8月27号建立，以后每天累计，第一天是土豪榜榜首是<span>彭潇崧</span>，请大家膜拜！</p>
+                </div>
+                
+              </div>
 						</div>
 					</div>
 					<div class="menuBottom"></div>

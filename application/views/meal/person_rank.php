@@ -12,27 +12,6 @@
   <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.nav.js"?>></script>
   <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/jquery.quicksand.js"?>></script> 
   <script type="text/javascript" src=<?php echo $this->config->item('base_url')."/scripts/easing.js"?>></script> 
-
-  <script type="text/javascript">
-$(document).ready(function(){
-  $category = $('.navMenu_son :hidden');
-   $a = $("div:not(.navMenu_son)");
-  if($category.is(':visible'))
-  {  
-   $a.on("mouseover",function(){
-    $category.slideUp("slow");
-  })
-}
-else{
-  console.log("else");
-  
-    $(".parentarea").on("mouseover",function(){
-    $category.slideDown("slow");
-    })
-    }
-});  
-</script>
-
   <script type="text/javascript">
     $(document).ready(function() {
       $(".navMenu").onePageNav();
@@ -100,6 +79,26 @@ $(".portfolio-1").slideUp();}
 
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui.min.js"?> type="text/javascript"></script>
 <script src=<?php echo $this->config->item('base_url')."/js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"?> type="text/javascript"></script>
+
+        <script type="text/javascript">
+$(document).ready(function(){
+  $category = $('.navMenu_son :hidden');
+   $a = $("div:not(.navMenu_son)");
+  if($category.is(':visible'))
+  {  
+   $a.on("mouseover",function(){
+    $category.slideUp("slow");
+  })
+}
+else{
+  console.log("else");
+  
+    $(".parentarea").on("mouseover",function(){
+    $category.slideDown("slow");
+    })
+    }
+});  
+</script>
 
 <script type="text/javascript">
 
@@ -566,6 +565,8 @@ function confirm()
   });
 </script>
 
+
+
 <base href="<?php echo base_url() ;?>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -661,11 +662,16 @@ table.hovertable td {
   display: none;
 
 }
-.home-1-1{
-    width: 380px;
-  margin: 0 auto;
-  min-height: 100px;
-  padding-right: 600px;
+.home-2 p{
+  font-family: "楷体";
+  color: #D9D481;
+  font-size: 35px;
+}
+.home-2 span{
+  font-family: "叶根友毛笔行书2.0版";
+  font-size: 40px;
+  text-decoration: underline;
+  color: #C8585B;
 }
 </style>
 </head>
@@ -679,6 +685,7 @@ table.hovertable td {
               <h1><a href="#">&nbsp;</a></h1>
               <p>大火溶内部网站</p>
             </div>
+            
           </div>
         </div>
         <div class="headerBottom">
@@ -691,60 +698,42 @@ table.hovertable td {
                       <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
                       
                   </div></li>
-              <li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪贡献榜</a></li>  
+              <li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪贡献榜</a></li>   
             </ul>
-      <!--      <div class="info clearfix">
-              <div  width="300px" id="shopping_car">
-                <div id="Cart" style="line-height: 24px; font-size: 12px; background-color: #f0f0f0;
-                          border-top: 1px #ffffff solid；display:none; ">
-                </div>
-                <div id="Info">
-                          总计：<strong><span id="total" style="color: #FF0000; font-size: 36px ; height: 10px;
-                width: 10px;">0</span></strong>元
-                 <input type="button" value="清空" onclick="clearOrder();WriteOrderInDiv();" />
-                 <input type="button" value="展开/收缩" onclick="show('Cart')" />
-                </div>
-              </div>
-            </div> -->
+     
           </div>
           <div class="menuBottom"></div>
         </div>
       </div>
       <div class="content">
-       
+        
         <div class="home-2">
-          <div class="home-2-center clearfix">
-              <form method="post"  name = "form1" action="<?php echo site_url('meal/meal_check_person_ok/')?>">
-               <p class = "STYLE22">
-                <input class="STYLE22" type="text" id="c_name" name = "c_name" placeholder="请输入姓名" value = "<?php if(!empty($c_name)) echo $c_name; ?>"/>
-                <input  class = "STYLE22" type="submit" id"submitinput" name="submit_article" value="查询" onclick="showValues()"> </input>
-                </p><br/>
-               </form>
-            
+            <div class="home-2-center clearfix">
+            <p>订餐信息从8月25号开始记录，土豪榜是8月27号建立，以后每天累计，第一天是土豪榜榜首是<span>彭潇崧</span>，请大家膜拜！</p>
           </div>
         </div>
     <script>
     window.WriteOrderInDiv();
     window.insert_customer();
     </script>
-      <div class="home-1-1">
-      <?php if(!empty($count)): ?>
-          <h1> 总价：<br /><span><?php echo $count;?> 元 <span class="agencySpan">!</span></span></h1>             
-           <?php endif ?>        
-        </div>
+
+
         <div class="home-4">
-          <div>
+                <div>
              <?php if(!empty($response)):
              echo $response;
              ?>
            <?php endif ?>
+             </div> 
           </div> 
-          </div>
             
         </div>
       </div>
     </div>
 </div>
+
+  
+
 
   <div id="footer">
     <div >

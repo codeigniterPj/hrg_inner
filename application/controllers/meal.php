@@ -99,8 +99,8 @@
  	function meal_rank()
  	{
  		$data['response'] = $this->meal_book->person_rank();
- 		print_r($data['response']);
- 		$this->load->view('/meal/meal_rank',$data);
+ 		//print_r($data['response']);
+ 		$this->load->view('/meal/person_rank',$data);
  	}
 
  	function meal_book_confirm()
