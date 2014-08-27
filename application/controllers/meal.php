@@ -98,7 +98,8 @@
 
  	function meal_rank()
  	{
- 		$data='';
+ 		$data['response'] = $this->meal_book->person_rank();
+ 		print_r($data['response']);
  		$this->load->view('/meal/meal_rank',$data);
  	}
 
@@ -161,6 +162,7 @@
     	fclose($handle);
     	return $contents;
  	}
+
 }
 
 ?>

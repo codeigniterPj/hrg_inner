@@ -243,6 +243,15 @@
 
  		}
 
+ 		function person_rank()
+ 		{
+ 			$sql = "SELECT order_name AS 名字, SUM(price * number) AS 总消费 FROM order_record GROUP BY order_name ORDER BY 总消费 DESC";
+ 			$query = $this->db->query($sql);
+            $this->table->set_template($this->tmpl);
+            $response = $this->table->generate($query);
+            return $response;
+ 		}
+
 	}
 
 ?>
