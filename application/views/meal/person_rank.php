@@ -571,7 +571,7 @@ function confirm()
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <style type="text/css">
-<!--
+
 body {
   margin-left: 3px;
   margin-top: 0px;
@@ -664,7 +664,7 @@ table.hovertable td {
 }
 .home-2 p{
   font-family: "楷体";
-  color: #D9D481;
+  color: #10110E;
   font-size: 35px;
 }
 .home-2 span{
@@ -672,6 +672,9 @@ table.hovertable td {
   font-size: 40px;
   text-decoration: underline;
   color: #C8585B;
+}
+.first{
+  background: #C9C958;
 }
 </style>
 </head>
@@ -698,7 +701,7 @@ table.hovertable td {
                       <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
                       
                   </div></li>
-              <li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪贡献榜</a></li>   
+              <li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪榜</a></li>   
             </ul>
      
           </div>
@@ -716,6 +719,14 @@ table.hovertable td {
     window.WriteOrderInDiv();
     window.insert_customer();
     </script>
+    <script type="text/javascript">
+$(document.body).mouseover(function(){
+  var n = $("tr").length;
+  $("tr:eq(1)").css("background","#F092A1");
+  $("tr:eq(2)").css("background","#F8F8AE");
+  $("tr:eq(3)").css("background","#D8F192");
+});
+</script>
 
 
         <div class="home-4">

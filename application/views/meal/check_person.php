@@ -691,7 +691,7 @@ table.hovertable td {
                       <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
                       
                   </div></li>
-              <li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪贡献榜</a></li>  
+              <li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪榜</a></li>  
             </ul>
       <!--      <div class="info clearfix">
               <div  width="300px" id="shopping_car">

@@ -729,9 +729,12 @@ table.hovertable td {
   width: 300px;
  
 }
+.home-21{
+
+}
 .home-21 p{
   font-family: "楷体";
-  color: #D9D481;
+  color: #10110E;
   font-size: 28px;
 }
 .home-21 span{
@@ -766,7 +769,7 @@ table.hovertable td {
                       <a href="<?php echo site_url('/meal/meal_check_person') ?>">查询个人订单</a>
                       
                   </div></li>
-							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪贡献榜</a></li>  
+							<li><a href="<?php echo site_url('/meal/meal_rank/')?>">土豪榜</a></li>  
 							
 						</ul></div>
 						<div class="info clearfix">
